@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:alephium_client/src/encryption/service/wallet.dart';
+import 'package:alephium_dart/src/encryption/service/wallet.dart';
 
 abstract class BaseWalletService {
   AlephiumWallet generateWallet(String passphrase);

@@ -1,0 +1,9 @@
+const TOTAL_NUMBER_OF_GROUPS = 4;
+const MIN_UTXO_SET_AMOUNT = 1000000000000;
+const NUM_OF_ZEROS_IN_QUINTILLION = 18;
+const MINIMAL_GAS_AMOUNT = 20000;
+const BILLION = 1000000000;
+const MINIMAL_GAS_PRICE =
+    BILLION * 100; // 100 nanoALPH for the first year to prevent DoS attacks
+const MONEY_SYMBOL = ['', 'K', 'M', 'B', 'T'];
+const QUINTILLION = 1000000000000000000;

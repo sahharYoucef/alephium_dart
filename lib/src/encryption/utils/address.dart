@@ -38,12 +38,9 @@ class AddressUtils {
     if (double.parse(amount) < 0) {
       throw Exception('Invalid Alph amount');
     }
-    if (amount == 0) {
-      return 0;
-    }
     var numberOfDecimals =
         amount.contains('.') ? amount.length - 1 - amount.indexOf('.') : 0;
-    var numberOfZerosToAdd = NUM_OF_ZEROS_IN_QUINTILLION - numberOfDecimals;
+    var numberOfZerosToAdd = numOfZerosInQuintillion - numberOfDecimals;
     var cleanedAmount =
         amount.toString().replaceFirst('.', '') + ('0' * numberOfZerosToAdd);
     return int.parse(cleanedAmount);
@@ -55,12 +52,12 @@ class AddressUtils {
       return '???';
     }
     // For abbreviation, we don't need full precision and can work with number
-    var alphNum = baseNum / QUINTILLION;
+    var alphNum = baseNum / quintillion;
     var minNumberOfDecimals = alphNum >= 0.000005 && alphNum < 0.01 ? 3 : 2;
     var numberOfDecimalsToDisplay = nbOfDecimalsToShow ?? minNumberOfDecimals;
     if (showFullPrecision) {
       var baseNumString = baseNum.toString();
-      var numNonDecimals = baseNumString.length - NUM_OF_ZEROS_IN_QUINTILLION;
+      var numNonDecimals = baseNumString.length - numOfZerosInQuintillion;
       var alphNumString = numNonDecimals > 0
           ? '${baseNumString.substring(0, numNonDecimals)}.${baseNumString.substring(numNonDecimals)}'
           : '0.${'0' * -numNonDecimals}$baseNumString';
@@ -85,7 +82,7 @@ class AddressUtils {
             ? 3
             : 4;
     // get suffix and determine scale
-    var suffix = MONEY_SYMBOL[tier];
+    var suffix = moneySymbol[tier];
     var scale = pow(10, tier * 3);
     // Scale the bigNum
     // Here we need to be careful of precision issues

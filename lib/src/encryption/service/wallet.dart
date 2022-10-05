@@ -52,7 +52,7 @@ class WalletService extends BaseWalletService {
   AlephiumAddress deriveNewAddressData(String seed, int forGroup,
       {int? index, List<int> skipAddressIndexes = const <int>[]}) {
     var _seed = Uint8List.fromList(hex.decode(seed));
-    if (forGroup >= TOTAL_NUMBER_OF_GROUPS || forGroup < 0) {
+    if (forGroup >= totalNumberOfGroups || forGroup < 0) {
       throw Exception("Invalid group number");
     }
     var initialAddressIndex = index ?? 0;
@@ -61,7 +61,7 @@ class WalletService extends BaseWalletService {
         : initialAddressIndex;
     var newAddressData = deriveAddressAndKeys(_seed, index: nextAddressIndex);
     while (AddressUtils.addressToGroup(
-            newAddressData.address, TOTAL_NUMBER_OF_GROUPS) !=
+            newAddressData.address, totalNumberOfGroups) !=
         forGroup) {
       nextAddressIndex = findNextAvailableAddressIndex(
         newAddressData.index,
@@ -181,6 +181,22 @@ class WalletService extends BaseWalletService {
     );
   }
 
+  String addressFromPublicKey(String publicKey) {
+    var _publicKey = Uint8List.fromList(hex.decode(publicKey));
+    var blake2b = Blake2b(
+      input: _publicKey,
+      key: null,
+      outLen: 32,
+    );
+    Uint8List type = Uint8List.fromList([0]);
+    var bytes = Uint8List.fromList([
+      ...type,
+      ...blake2b.hash,
+    ]);
+    var address = base58.encode(bytes);
+    return address;
+  }
+
   String getPath([int index = 0]) {
     if ((index < 0 || index.toString().contains('e'))) {
       throw Exception('Invalid address index path level');
@@ -202,7 +218,7 @@ class WalletService extends BaseWalletService {
 
   String _signatureEncode(ec.Curve curve, ecdsa.Signature signature) {
     var sNormalized = signature.S;
-    if (curve.n != null && signature.S.compareTo(curve.n) >= 1) {
+    if (signature.S.compareTo(curve.n) >= 1) {
       sNormalized = curve.n - signature.S;
     }
     var r = _bigIntToUint8List(signature.R)

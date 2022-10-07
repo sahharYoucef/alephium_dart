@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:alephium_dart/src/encryption/models/alephium_address_model.dart';
+import 'package:alephium_dart/src/encryption/models/alephium_wallet_model.dart';
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:bs58/bs58.dart';
 import 'package:convert/convert.dart';
-import '../base_wallet_service.dart';
 import '../utils/blake2b.dart';
 import '../utils/constants.dart';
 import '../utils/address.dart';
@@ -13,43 +14,8 @@ import '../utils/password_crypto.dart';
 import 'package:ecdsa/ecdsa.dart' as ecdsa;
 import 'package:elliptic/elliptic.dart' as ec;
 
-class AlephiumAddress {
-  final String address;
-  final String privateKey;
-  final String publicKey;
-  final String passphrase;
-  final int index;
-  final int group;
-
-  AlephiumAddress({
-    required this.privateKey,
-    required this.publicKey,
-    required this.passphrase,
-    required this.address,
-    required this.index,
-    required this.group,
-  });
-}
-
-class AlephiumWallet {
-  final String mnemonic;
-  final String seed;
-  final String passphrase;
-
-  final List<AlephiumAddress> addresses;
-
-  AlephiumWallet({
-    required this.passphrase,
-    required this.mnemonic,
-    required this.seed,
-    this.addresses = const [],
-  });
-}
-
-class WalletService extends BaseWalletService {
-  WalletService();
-
-  AlephiumAddress deriveNewAddressData(String seed, int forGroup,
+class WalletService {
+  static AlephiumAddress deriveNewAddressData(String seed, int forGroup,
       {int? index, List<int> skipAddressIndexes = const <int>[]}) {
     var _seed = Uint8List.fromList(hex.decode(seed));
     if (forGroup >= totalNumberOfGroups || forGroup < 0) {
@@ -57,18 +23,19 @@ class WalletService extends BaseWalletService {
     }
     var initialAddressIndex = index ?? 0;
     var nextAddressIndex = skipAddressIndexes.contains(initialAddressIndex)
-        ? findNextAvailableAddressIndex(initialAddressIndex, skipAddressIndexes)
+        ? _findNextAvailableAddressIndex(
+            initialAddressIndex, skipAddressIndexes)
         : initialAddressIndex;
-    var newAddressData = deriveAddressAndKeys(_seed, index: nextAddressIndex);
+    var newAddressData = _deriveAddressAndKeys(_seed, index: nextAddressIndex);
     while (AddressUtils.addressToGroup(
             newAddressData.address, totalNumberOfGroups) !=
         forGroup) {
-      nextAddressIndex = findNextAvailableAddressIndex(
+      nextAddressIndex = _findNextAvailableAddressIndex(
         newAddressData.index,
         skipAddressIndexes,
       );
       print("nextAddressIndex : $nextAddressIndex");
-      newAddressData = deriveAddressAndKeys(
+      newAddressData = _deriveAddressAndKeys(
         _seed,
         index: nextAddressIndex,
         group: forGroup,
@@ -77,7 +44,7 @@ class WalletService extends BaseWalletService {
     return newAddressData;
   }
 
-  int findNextAvailableAddressIndex(
+  static int _findNextAvailableAddressIndex(
     int startIndex,
     List<int> skipIndexes,
   ) {
@@ -90,13 +57,13 @@ class WalletService extends BaseWalletService {
     return nextAvailableAddressIndex;
   }
 
-  AlephiumWallet openWallet(String password, String encryptedWallet) {
+  static AlephiumWallet openWallet(String password, String encryptedWallet) {
     var dataDecrypted = PasswordCrypto.decrypt(password, encryptedWallet);
     var data = json.decode(dataDecrypted);
-    return getWalletFromMnemonic(data["mnemonic"]);
+    return _getWalletFromMnemonic(data["mnemonic"]);
   }
 
-  String encryptWallet(AlephiumWallet wallet, String password) {
+  static String encryptWallet(AlephiumWallet wallet, String password) {
     return PasswordCrypto.encrypt(
         password,
         json.encode({
@@ -104,36 +71,29 @@ class WalletService extends BaseWalletService {
         }));
   }
 
-  @override
-  AlephiumWallet importWallet(String mnemonic, String passphrase) {
+  static AlephiumWallet importWallet(String mnemonic, String passphrase) {
     var isValid = bip39.validateMnemonic(mnemonic);
     if (!isValid) {
       throw Exception('Invalid mnemonic');
     }
-    return getWalletFromMnemonic(mnemonic, passphrase: passphrase);
+    return _getWalletFromMnemonic(mnemonic, passphrase: passphrase);
   }
 
-  @override
-  AlephiumWallet generateWallet(String passphrase) {
+  static AlephiumWallet generateWallet(String passphrase) {
     var mnemonic = bip39.generateMnemonic(strength: 256);
-    return getWalletFromMnemonic(mnemonic, passphrase: passphrase);
+    return _getWalletFromMnemonic(mnemonic, passphrase: passphrase);
   }
 
-  @override
-  AlephiumWallet getWalletFromMnemonic(String mnemonic,
+  static AlephiumWallet _getWalletFromMnemonic(String mnemonic,
       {String passphrase = ""}) {
     var seed = bip39.mnemonicToSeed(mnemonic, passphrase: passphrase);
-    return getWalletFromSeed(seed, mnemonic: mnemonic, passphrase: passphrase);
+    return _getWalletFromSeed(seed, mnemonic: mnemonic, passphrase: passphrase);
   }
 
-  @override
-  AlephiumWallet getWalletFromSeed(Uint8List seed,
+  static AlephiumWallet _getWalletFromSeed(Uint8List seed,
       {String mnemonic = "", String passphrase = ""}) {
     AlephiumAddress addressData =
-        deriveAddressAndKeys(seed, mnemonic: mnemonic, passphrase: passphrase);
-    if (addressData.address == null) {
-      throw Exception('Invalid address');
-    }
+        _deriveAddressAndKeys(seed, mnemonic: mnemonic, passphrase: passphrase);
 
     var wallet = AlephiumWallet(
       addresses: [addressData],
@@ -144,7 +104,7 @@ class WalletService extends BaseWalletService {
     return wallet;
   }
 
-  AlephiumAddress deriveAddressAndKeys(Uint8List seed,
+  static AlephiumAddress _deriveAddressAndKeys(Uint8List seed,
       {int index = 0,
       int group = 0,
       String mnemonic = "",
@@ -153,7 +113,7 @@ class WalletService extends BaseWalletService {
       Uint8List.fromList(seed),
     );
 
-    String path = getPath(index);
+    String path = _getPath(index);
     var keyPair = masterKey.derivePath(path);
     if (keyPair.privateKey == null) {
       throw Exception("No private key found");
@@ -181,10 +141,10 @@ class WalletService extends BaseWalletService {
     );
   }
 
-  String addressFromPublicKey(String publicKey) {
-    var _publicKey = Uint8List.fromList(hex.decode(publicKey));
+  static String addressFromPublicKey(String publicKey) {
+    var publicKeyUint8List = Uint8List.fromList(hex.decode(publicKey));
     var blake2b = Blake2b(
-      input: _publicKey,
+      input: publicKeyUint8List,
       key: null,
       outLen: 32,
     );
@@ -197,7 +157,7 @@ class WalletService extends BaseWalletService {
     return address;
   }
 
-  String getPath([int index = 0]) {
+  static String _getPath([int index = 0]) {
     if ((index < 0 || index.toString().contains('e'))) {
       throw Exception('Invalid address index path level');
     }
@@ -206,7 +166,7 @@ class WalletService extends BaseWalletService {
     return path;
   }
 
-  String signTransaction(String txHash, String privetKey) {
+  static String signTransaction(String txHash, String privetKey) {
     var curve = ec.getSecp256k1();
     var hash = List<int>.generate(txHash.length ~/ 2,
         (i) => int.parse(txHash.substring(i * 2, i * 2 + 2), radix: 16));
@@ -216,7 +176,7 @@ class WalletService extends BaseWalletService {
     return eSignature;
   }
 
-  String _signatureEncode(ec.Curve curve, ecdsa.Signature signature) {
+  static String _signatureEncode(ec.Curve curve, ecdsa.Signature signature) {
     var sNormalized = signature.S;
     if (signature.S.compareTo(curve.n) >= 1) {
       sNormalized = curve.n - signature.S;
@@ -234,10 +194,10 @@ class WalletService extends BaseWalletService {
     return hex.encode(xs);
   }
 
-  Uint8List _bigIntToUint8List(BigInt bigInt) =>
+  static Uint8List _bigIntToUint8List(BigInt bigInt) =>
       _bigIntToByteData(bigInt).buffer.asUint8List();
 
-  ByteData _bigIntToByteData(BigInt bigInt) {
+  static ByteData _bigIntToByteData(BigInt bigInt) {
     final data = ByteData((bigInt.bitLength / 8).ceil());
     var _bigInt = bigInt;
 

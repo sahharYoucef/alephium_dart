@@ -14,8 +14,8 @@ class BuildScriptTx {
   final List<Token>? tokens;
   @JsonKey(name: 'gas')
   final num? gas;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount')
+  final String? attoAlphAmount;
   @JsonKey(name: 'gasPrice')
   final String? gasPrice;
   @JsonKey(name: 'utxosLimit')
@@ -26,7 +26,7 @@ class BuildScriptTx {
     this.bytecode,
     this.tokens,
     this.gas,
-    this.alphAmount,
+    this.attoAlphAmount,
     this.gasPrice,
     this.utxosLimit,
   });

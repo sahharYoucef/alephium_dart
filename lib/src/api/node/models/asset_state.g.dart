@@ -7,7 +7,7 @@ part of 'asset_state.dart';
 // **************************************************************************
 
 AssetState _$AssetStateFromJson(Map<String, dynamic> json) => AssetState(
-      alphAmount: json['alphAmount'] as String?,
+      attoAlphAmount: json['attoAlphAmount'] as String?,
       tokens: json['tokens'] == null
           ? null
           : Token.fromJson(json['tokens'] as Map<String, dynamic>),
@@ -22,7 +22,7 @@ Map<String, dynamic> _$AssetStateToJson(AssetState instance) {
     }
   }
 
-  writeNotNull('alphAmount', instance.alphAmount);
+  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
   writeNotNull('tokens', instance.tokens);
   return val;
 }

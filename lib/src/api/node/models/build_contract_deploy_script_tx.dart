@@ -12,8 +12,8 @@ class BuildContractDeployScriptTx {
   final List<dynamic>? initialFields;
   @JsonKey(name: 'gas')
   final num? gas;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount')
+  final String? attoAlphAmount;
   @JsonKey(name: 'gasPrice')
   final String? gasPrice;
   @JsonKey(name: 'utxosLimit')
@@ -24,7 +24,7 @@ class BuildContractDeployScriptTx {
     this.bytecode,
     this.initialFields,
     this.gas,
-    this.alphAmount,
+    this.attoAlphAmount,
     this.gasPrice,
     this.utxosLimit,
   });

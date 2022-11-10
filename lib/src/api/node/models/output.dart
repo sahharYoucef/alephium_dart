@@ -10,8 +10,8 @@ class Output {
   final int? hint;
   @JsonKey(name: 'key')
   final String? key;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount')
+  final String? attoAlphAmount;
   @JsonKey(name: 'address')
   final String? address;
   @JsonKey(name: 'tokens')
@@ -24,7 +24,7 @@ class Output {
   final String? type;
 
   Output({
-    this.alphAmount,
+    this.attoAlphAmount,
     this.address,
     this.tokens,
     this.lockTime,

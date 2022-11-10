@@ -10,8 +10,8 @@ class FixedAssetOutput {
   final num? hint;
   @JsonKey(name: 'key')
   final String? key;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount')
+  final String? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime')
@@ -24,7 +24,7 @@ class FixedAssetOutput {
   FixedAssetOutput({
     this.hint,
     this.key,
-    this.alphAmount,
+    this.attoAlphAmount,
     this.tokens,
     this.lockTime,
     this.additionalData,

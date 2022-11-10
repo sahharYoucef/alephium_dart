@@ -8,8 +8,8 @@ part 'transaction_destination.g.dart';
 class TransactionDestination {
   @JsonKey(name: 'address', includeIfNull: false)
   final String? address;
-  @JsonKey(name: 'alphAmount', includeIfNull: false)
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount', includeIfNull: false)
+  final String? attoAlphAmount;
   @JsonKey(name: 'tokens', includeIfNull: false)
   final Token? tokens;
   @JsonKey(name: 'lockTime', includeIfNull: false)
@@ -17,7 +17,7 @@ class TransactionDestination {
 
   TransactionDestination({
     this.address,
-    this.alphAmount,
+    this.attoAlphAmount,
     this.tokens,
     this.lockTime,
   });

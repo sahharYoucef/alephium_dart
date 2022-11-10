@@ -6,13 +6,13 @@ part 'asset_state.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class AssetState {
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
+  @JsonKey(name: 'attoAlphAmount')
+  final String? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final Token? tokens;
 
   AssetState({
-    this.alphAmount,
+    this.attoAlphAmount,
     this.tokens,
   });
 

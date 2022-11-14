@@ -14,6 +14,7 @@ BuildContractDeployScriptTx _$BuildContractDeployScriptTxFromJson(
       initialFields: json['initialFields'] as List<dynamic>?,
       gas: json['gas'] as num?,
       attoAlphAmount: json['attoAlphAmount'] as String?,
+      alphAmount: json['alphAmount'] as String?,
       gasPrice: json['gasPrice'] as String?,
       utxosLimit: json['utxosLimit'] as num?,
     );
@@ -33,6 +34,7 @@ Map<String, dynamic> _$BuildContractDeployScriptTxToJson(
   writeNotNull('initialFields', instance.initialFields);
   writeNotNull('gas', instance.gas);
   writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('alphAmount', instance.alphAmount);
   writeNotNull('gasPrice', instance.gasPrice);
   writeNotNull('utxosLimit', instance.utxosLimit);
   return val;

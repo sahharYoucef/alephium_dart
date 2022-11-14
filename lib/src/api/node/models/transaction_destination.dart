@@ -10,6 +10,8 @@ class TransactionDestination {
   final String? address;
   @JsonKey(name: 'attoAlphAmount', includeIfNull: false)
   final String? attoAlphAmount;
+  @JsonKey(name: 'alphAmount', includeIfNull: false)
+  final String? alphAmount;
   @JsonKey(name: 'tokens', includeIfNull: false)
   final Token? tokens;
   @JsonKey(name: 'lockTime', includeIfNull: false)
@@ -18,6 +20,7 @@ class TransactionDestination {
   TransactionDestination({
     this.address,
     this.attoAlphAmount,
+    this.alphAmount,
     this.tokens,
     this.lockTime,
   });

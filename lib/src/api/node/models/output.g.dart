@@ -8,6 +8,7 @@ part of 'output.dart';
 
 Output _$OutputFromJson(Map<String, dynamic> json) => Output(
       attoAlphAmount: json['attoAlphAmount'] as String?,
+      alphAmount: json['alphAmount'] as String?,
       address: json['address'] as String?,
       tokens: json['tokens'] == null
           ? null
@@ -31,6 +32,7 @@ Map<String, dynamic> _$OutputToJson(Output instance) {
   writeNotNull('hint', instance.hint);
   writeNotNull('key', instance.key);
   writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('alphAmount', instance.alphAmount);
   writeNotNull('address', instance.address);
   writeNotNull('tokens', instance.tokens);
   writeNotNull('lockTime', instance.lockTime);

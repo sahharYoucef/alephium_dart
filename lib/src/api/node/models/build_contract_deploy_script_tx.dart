@@ -14,6 +14,8 @@ class BuildContractDeployScriptTx {
   final num? gas;
   @JsonKey(name: 'attoAlphAmount')
   final String? attoAlphAmount;
+  @JsonKey(name: 'alphAmount')
+  final String? alphAmount;
   @JsonKey(name: 'gasPrice')
   final String? gasPrice;
   @JsonKey(name: 'utxosLimit')
@@ -25,6 +27,7 @@ class BuildContractDeployScriptTx {
     this.initialFields,
     this.gas,
     this.attoAlphAmount,
+    this.alphAmount,
     this.gasPrice,
     this.utxosLimit,
   });

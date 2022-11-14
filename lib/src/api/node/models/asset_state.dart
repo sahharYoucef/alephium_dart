@@ -8,11 +8,14 @@ part 'asset_state.g.dart';
 class AssetState {
   @JsonKey(name: 'attoAlphAmount')
   final String? attoAlphAmount;
+  @JsonKey(name: 'alphAmount')
+  final String? alphAmount;
   @JsonKey(name: 'tokens')
   final Token? tokens;
 
   AssetState({
     this.attoAlphAmount,
+    this.alphAmount,
     this.tokens,
   });
 

@@ -10,19 +10,19 @@ class TransactionDestination {
   final String? address;
   @JsonKey(name: 'attoAlphAmount', includeIfNull: false)
   final String? attoAlphAmount;
-  @JsonKey(name: 'alphAmount', includeIfNull: false)
-  final String? alphAmount;
   @JsonKey(name: 'tokens', includeIfNull: false)
-  final Token? tokens;
+  final List<Token>? tokens;
   @JsonKey(name: 'lockTime', includeIfNull: false)
-  final int? lockTime;
+  final num? lockTime;
+  @JsonKey(name: 'message', includeIfNull: false)
+  final String? message;
 
   TransactionDestination({
     this.address,
     this.attoAlphAmount,
-    this.alphAmount,
     this.tokens,
     this.lockTime,
+    this.message,
   });
 
   factory TransactionDestination.fromJson(Map<String, dynamic> json) =>

@@ -15,7 +15,10 @@ ExplorerInput _$ExplorerInputFromJson(Map<String, dynamic> json) =>
       unlockScript: json['unlockScript'] as String?,
       txHashRef: json['txHashRef'] as String?,
       address: json['address'] as String?,
-      amount: json['amount'] as String?,
+      attoAlphAmount: json['attoAlphAmount'] as String?,
+      tokens: (json['tokens'] as List<dynamic>?)
+          ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$ExplorerInputToJson(ExplorerInput instance) {
@@ -31,6 +34,7 @@ Map<String, dynamic> _$ExplorerInputToJson(ExplorerInput instance) {
   writeNotNull('unlockScript', instance.unlockScript);
   writeNotNull('txHashRef', instance.txHashRef);
   writeNotNull('address', instance.address);
-  writeNotNull('amount', instance.amount);
+  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('tokens', instance.tokens);
   return val;
 }

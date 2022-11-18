@@ -12,15 +12,19 @@ class AddressBalance {
   final String? balanceHint;
   @JsonKey(name: 'lockedBalance')
   final String? lockedBalance;
+  @JsonKey(name: 'lockedBalanceHint')
+  final String? lockedBalanceHint;
   @JsonKey(name: 'warning')
   final String? warning;
 
-  AddressBalance(
-      {this.address,
-      this.balance,
-      this.balanceHint,
-      this.lockedBalance,
-      this.warning});
+  AddressBalance({
+    this.address,
+    this.balance,
+    this.balanceHint,
+    this.lockedBalanceHint,
+    this.lockedBalance,
+    this.warning,
+  });
 
   factory AddressBalance.fromJson(Map<String, dynamic> json) =>
       _$AddressBalanceFromJson(json);

@@ -5,11 +5,11 @@ part 'per_chain_count.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PerChainCount {
   @JsonKey(name: 'count')
-  final int? count;
+  final num? count;
   @JsonKey(name: 'chainFrom')
-  final int? chainFrom;
+  final num? chainFrom;
   @JsonKey(name: 'chainTo')
-  final int? chainTo;
+  final num? chainTo;
 
   PerChainCount({
     this.count,

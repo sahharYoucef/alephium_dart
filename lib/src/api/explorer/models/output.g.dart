@@ -9,11 +9,16 @@ part of 'output.dart';
 ExplorerOutput _$ExplorerOutputFromJson(Map<String, dynamic> json) =>
     ExplorerOutput(
       address: json['address'] as String?,
-      amount: json['amount'] as String?,
+      attoAlphAmount: json['attoAlphAmount'] as String?,
       hint: json['hint'] as int?,
       key: json['key'] as String?,
       lockTime: json['lockTime'] as int?,
       spent: json['spent'] as String?,
+      tokens: (json['tokens'] as List<dynamic>?)
+          ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      type: json['type'] as String?,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$ExplorerOutputToJson(ExplorerOutput instance) {
@@ -26,10 +31,13 @@ Map<String, dynamic> _$ExplorerOutputToJson(ExplorerOutput instance) {
   }
 
   writeNotNull('address', instance.address);
-  writeNotNull('amount', instance.amount);
+  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
   writeNotNull('hint', instance.hint);
   writeNotNull('key', instance.key);
   writeNotNull('lockTime', instance.lockTime);
   writeNotNull('spent', instance.spent);
+  writeNotNull('tokens', instance.tokens);
+  writeNotNull('type', instance.type);
+  writeNotNull('message', instance.message);
   return val;
 }

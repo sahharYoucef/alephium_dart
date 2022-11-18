@@ -11,7 +11,6 @@ FixedAssetOutput _$FixedAssetOutputFromJson(Map<String, dynamic> json) =>
       hint: json['hint'] as num?,
       key: json['key'] as String?,
       attoAlphAmount: json['attoAlphAmount'] as String?,
-      alphAmount: json['alphAmount'] as String?,
       tokens: (json['tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -32,7 +31,6 @@ Map<String, dynamic> _$FixedAssetOutputToJson(FixedAssetOutput instance) {
   writeNotNull('hint', instance.hint);
   writeNotNull('key', instance.key);
   writeNotNull('attoAlphAmount', instance.attoAlphAmount);
-  writeNotNull('alphAmount', instance.alphAmount);
   writeNotNull('tokens', instance.tokens);
   writeNotNull('lockTime', instance.lockTime);
   writeNotNull('additionalData', instance.additionalData);

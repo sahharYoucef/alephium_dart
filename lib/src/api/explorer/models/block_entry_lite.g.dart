@@ -13,8 +13,8 @@ BlockEntryLite _$BlockEntryLiteFromJson(Map<String, dynamic> json) =>
       timestamp: json['timestamp'] as num?,
       chainFrom: json['chainFrom'] as num?,
       chainTo: json['chainTo'] as num?,
-      txNumber: json['txNumber'] as String?,
-      mainChain: json['mainChain'] as String?,
+      txNumber: json['txNumber'] as num?,
+      mainChain: json['mainChain'] as bool?,
       hashRate: json['hashRate'] as String?,
     );
 

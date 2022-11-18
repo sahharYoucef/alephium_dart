@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/node/models/compiler_options.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'contract.g.dart';
@@ -6,9 +7,12 @@ part 'contract.g.dart';
 class Contract {
   @JsonKey(name: 'code')
   final String? code;
+  @JsonKey(name: 'compilerOptions')
+  final CompilerOptions? compilerOptions;
 
   Contract({
     this.code,
+    this.compilerOptions,
   });
 
   factory Contract.fromJson(Map<String, dynamic> json) =>

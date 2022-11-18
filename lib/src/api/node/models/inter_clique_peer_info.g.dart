@@ -11,7 +11,7 @@ InterCliquePeerInfo _$InterCliquePeerInfoFromJson(Map<String, dynamic> json) =>
       cliqueId: json['cliqueId'] as String?,
       brokerId: json['brokerId'] as num?,
       groupNumPerBroker: json['groupNumPerBroker'] as num?,
-      address: json['address'] as String?,
+      address: json['address'] as Map<String, dynamic>?,
       isSynced: json['isSynced'] as bool?,
       clientVersion: json['clientVersion'] as String?,
     );

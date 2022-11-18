@@ -9,29 +9,26 @@ class BuildScriptTx {
   @JsonKey(name: 'fromPublicKey')
   final String? fromPublicKey;
   @JsonKey(name: 'bytecode')
-  final String? bytecode;
+  final String? byteCode;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
-  @JsonKey(name: 'gas')
-  final num? gas;
+  @JsonKey(name: 'gasAmount')
+  final num? gasAmount;
   @JsonKey(name: 'attoAlphAmount')
   final String? attoAlphAmount;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
   @JsonKey(name: 'gasPrice')
   final String? gasPrice;
-  @JsonKey(name: 'utxosLimit')
-  final num? utxosLimit;
+  @JsonKey(name: 'targetBlockHash')
+  final num? targetBlockHash;
 
   BuildScriptTx({
     this.fromPublicKey,
-    this.bytecode,
+    this.byteCode,
     this.tokens,
-    this.gas,
+    this.gasAmount,
     this.attoAlphAmount,
-    this.alphAmount,
     this.gasPrice,
-    this.utxosLimit,
+    this.targetBlockHash,
   });
 
   factory BuildScriptTx.fromJson(Map<String, dynamic> json) =>

@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/node/models/wallet_restore.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
 
@@ -14,13 +15,14 @@ abstract class WalletClient {
 
   @PUT("/wallets")
   @Headers({"Content-Type": "application/json"})
-  Future<List<WalletRestoreResult>> putWallets({
+  Future<List<WalletRestoreResult>> putWallets(
+    @Body() WalletRestore data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/wallets")
   @Headers({"Content-Type": "application/json"})
-  Future<List<WalletCreationResult>> potWallets(
+  Future<List<WalletCreationResult>> postWallets(
     @Body() WalletCreation body, {
     @Headers() Map<String, dynamic>? params,
   });

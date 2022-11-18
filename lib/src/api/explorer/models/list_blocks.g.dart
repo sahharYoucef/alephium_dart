@@ -7,7 +7,7 @@ part of 'list_blocks.dart';
 // **************************************************************************
 
 ListBlocks _$ListBlocksFromJson(Map<String, dynamic> json) => ListBlocks(
-      total: json['total'] as int?,
+      total: json['total'] as num?,
       blocks: (json['blocks'] as List<dynamic>?)
           ?.map((e) => BlockEntryLite.fromJson(e as Map<String, dynamic>))
           .toList(),

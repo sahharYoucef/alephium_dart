@@ -7,7 +7,7 @@ part 'list_blocks.g.dart';
 @JsonSerializable(includeIfNull: false)
 class ListBlocks {
   @JsonKey(name: 'total')
-  final int? total;
+  final num? total;
   @JsonKey(name: 'blocks')
   final List<BlockEntryLite>? blocks;
 

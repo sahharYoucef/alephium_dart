@@ -11,7 +11,7 @@ NodeInfo _$NodeInfoFromJson(Map<String, dynamic> json) => NodeInfo(
           ? null
           : BuildInfo.fromJson(json['buildInfo'] as Map<String, dynamic>),
       upnp: json['upnp'] as bool?,
-      externalAddress: json['externalAddress'] as String?,
+      externalAddress: json['externalAddress'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$NodeInfoToJson(NodeInfo instance) {

@@ -10,9 +10,9 @@ class UnsignedTx {
   @JsonKey(name: 'txId')
   final String? txId;
   @JsonKey(name: 'version')
-  final int? version;
+  final num? version;
   @JsonKey(name: 'networkId')
-  final int? networkId;
+  final num? networkId;
   @JsonKey(name: 'scriptOpt')
   final String? scriptOpt;
   @JsonKey(name: 'gasPrice')

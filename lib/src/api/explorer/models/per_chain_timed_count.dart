@@ -7,7 +7,7 @@ part 'per_chain_timed_count.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PerChainTimedCount {
   @JsonKey(name: 'timestamp')
-  final int? timestamp;
+  final num? timestamp;
   @JsonKey(name: 'totalCountPerChain')
   final List<PerChainCount>? totalCountPerChain;
 

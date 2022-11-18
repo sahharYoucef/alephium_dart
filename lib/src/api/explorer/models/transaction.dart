@@ -23,6 +23,12 @@ class ExplorerTransaction {
   final String? gasPrice;
   @JsonKey(name: 'type')
   final String? type;
+  @JsonKey(name: 'lastSeen')
+  final num? lastSeen;
+  @JsonKey(name: 'chainFrom')
+  final num? chainFrom;
+  @JsonKey(name: 'chainTo')
+  final num? chainTo;
 
   ExplorerTransaction({
     this.hash,
@@ -33,6 +39,9 @@ class ExplorerTransaction {
     this.gasPrice,
     this.gasAmount,
     this.type,
+    this.lastSeen,
+    this.chainFrom,
+    this.chainTo,
   });
   factory ExplorerTransaction.fromJson(Map<String, dynamic> json) =>
       _$ExplorerTransactionFromJson(json);

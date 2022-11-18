@@ -13,20 +13,20 @@ class BuildTransaction {
   final List<TransactionDestination>? destinations;
   @JsonKey(name: 'utxos', includeIfNull: false)
   final List<OutputRef>? utxos;
-  @JsonKey(name: 'gas', includeIfNull: false)
-  final num? gas;
+  @JsonKey(name: 'gasAmount', includeIfNull: false)
+  final num? gasAmount;
   @JsonKey(name: 'gasPrice', includeIfNull: false)
   final String? gasPrice;
-  @JsonKey(name: 'utxosLimit', includeIfNull: false)
-  final num? utxosLimit;
+  @JsonKey(name: 'targetBlockHash', includeIfNull: false)
+  final String? targetBlockHash;
 
   BuildTransaction({
     this.fromPublicKey,
     this.destinations,
     this.utxos,
-    this.gas,
+    this.gasAmount,
     this.gasPrice,
-    this.utxosLimit,
+    this.targetBlockHash,
   });
 
   factory BuildTransaction.fromJson(Map<String, dynamic> json) =>

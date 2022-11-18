@@ -8,13 +8,22 @@ class BuildScriptTxResult {
   final String? txId;
   @JsonKey(name: 'unsignedTx')
   final String? unsignedTx;
-  @JsonKey(name: 'group')
-  final num? group;
+  @JsonKey(name: 'fromGroup')
+  final num? fromGroup;
+  @JsonKey(name: 'toGroup')
+  final num? toGroup;
+  @JsonKey(name: 'gasAmount')
+  final num? gasAmount;
+  @JsonKey(name: 'gasPrice')
+  final num? gasPrice;
 
   BuildScriptTxResult({
+    this.fromGroup,
+    this.toGroup,
+    this.gasAmount,
+    this.gasPrice,
     this.txId,
     this.unsignedTx,
-    this.group,
   });
 
   factory BuildScriptTxResult.fromJson(Map<String, dynamic> json) =>

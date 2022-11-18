@@ -12,8 +12,6 @@ class FixedAssetOutput {
   final String? key;
   @JsonKey(name: 'attoAlphAmount')
   final String? attoAlphAmount;
-  @JsonKey(name: 'alphAmount')
-  final String? alphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime')
@@ -27,7 +25,6 @@ class FixedAssetOutput {
     this.hint,
     this.key,
     this.attoAlphAmount,
-    this.alphAmount,
     this.tokens,
     this.lockTime,
     this.additionalData,

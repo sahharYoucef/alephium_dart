@@ -10,7 +10,7 @@ Balances _$BalancesFromJson(Map<String, dynamic> json) => Balances(
       totalBalance: json['totalBalance'] as String?,
       totalBalanceHint: json['totalBalanceHint'] as String?,
       balances: (json['balances'] as List<dynamic>?)
-          ?.map((e) => Balance.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AddressBalance.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

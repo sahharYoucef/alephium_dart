@@ -11,7 +11,7 @@ class NodeInfo {
   @JsonKey(name: 'upnp')
   final bool? upnp;
   @JsonKey(name: 'externalAddress')
-  final String? externalAddress;
+  final Map<String, dynamic>? externalAddress;
 
   NodeInfo({
     this.buildInfo,

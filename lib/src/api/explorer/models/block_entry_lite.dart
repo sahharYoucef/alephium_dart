@@ -15,9 +15,9 @@ class BlockEntryLite {
   @JsonKey(name: 'chainTo')
   final num? chainTo;
   @JsonKey(name: 'txNumber')
-  final String? txNumber;
+  final num? txNumber;
   @JsonKey(name: 'mainChain')
-  final String? mainChain;
+  final bool? mainChain;
   @JsonKey(name: 'hashRate')
   final String? hashRate;
 

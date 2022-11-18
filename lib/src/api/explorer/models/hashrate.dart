@@ -5,11 +5,11 @@ part 'hashrate.g.dart';
 @JsonSerializable(includeIfNull: false)
 class Hashrate {
   @JsonKey(name: 'hashrate')
-  final String? hashrate;
+  final num? hashrate;
   @JsonKey(name: 'value')
-  final String? value;
+  final num? value;
   @JsonKey(name: 'timestamp')
-  final int? timestamp;
+  final num? timestamp;
 
   Hashrate({
     this.hashrate,

@@ -8,9 +8,12 @@ part of 'build_script_tx_result.dart';
 
 BuildScriptTxResult _$BuildScriptTxResultFromJson(Map<String, dynamic> json) =>
     BuildScriptTxResult(
+      fromGroup: json['fromGroup'] as num?,
+      toGroup: json['toGroup'] as num?,
+      gasAmount: json['gasAmount'] as num?,
+      gasPrice: json['gasPrice'] as num?,
       txId: json['txId'] as String?,
       unsignedTx: json['unsignedTx'] as String?,
-      group: json['group'] as num?,
     );
 
 Map<String, dynamic> _$BuildScriptTxResultToJson(BuildScriptTxResult instance) {
@@ -24,6 +27,9 @@ Map<String, dynamic> _$BuildScriptTxResultToJson(BuildScriptTxResult instance) {
 
   writeNotNull('txId', instance.txId);
   writeNotNull('unsignedTx', instance.unsignedTx);
-  writeNotNull('group', instance.group);
+  writeNotNull('fromGroup', instance.fromGroup);
+  writeNotNull('toGroup', instance.toGroup);
+  writeNotNull('gasAmount', instance.gasAmount);
+  writeNotNull('gasPrice', instance.gasPrice);
   return val;
 }

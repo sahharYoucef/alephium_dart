@@ -9,7 +9,7 @@ part of 'broker_info.dart';
 BrokerInfo _$BrokerInfoFromJson(Map<String, dynamic> json) => BrokerInfo(
       brokerId: json['brokerId'] as String?,
       brokerNum: json['brokerNum'] as num?,
-      address: json['address'] as String?,
+      address: json['address'] as Map<String, dynamic>?,
       cliqueId: json['cliqueId'] as String?,
     );
 

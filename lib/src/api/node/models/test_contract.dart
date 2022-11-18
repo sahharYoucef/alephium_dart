@@ -1,9 +1,6 @@
 import 'package:alephium_dart/src/api/node/models/test_input_asset.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'contract_state.dart';
-import 'input_asset.dart';
-
 part 'test_contract.g.dart';
 
 @JsonSerializable(includeIfNull: false)

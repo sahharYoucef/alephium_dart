@@ -14,11 +14,8 @@ class BuildTransactionResult {
   final String? txId;
   @JsonKey(name: 'gasPrice')
   final String? gasPrice;
-  @JsonKey(
-    name: 'gasAmount',
-    fromJson: _fromJson,
-  )
-  final String? gasAmount;
+  @JsonKey(name: 'gasAmount')
+  final num? gasAmount;
 
   BuildTransactionResult({
     this.unsignedTx,

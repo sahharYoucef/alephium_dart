@@ -9,7 +9,7 @@ part of 'address_info.dart';
 AddressInfo _$AddressInfoFromJson(Map<String, dynamic> json) => AddressInfo(
       address: json['address'] as String?,
       publicKey: json['publicKey'] as String?,
-      group: json['group'] as int?,
+      group: json['group'] as num?,
       path: json['path'] as String?,
     );
 

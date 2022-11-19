@@ -8,10 +8,10 @@ part of 'per_chain_height.dart';
 
 PerChainHeight _$PerChainHeightFromJson(Map<String, dynamic> json) =>
     PerChainHeight(
-      value: json['value'] as int?,
-      chainFrom: json['chainFrom'] as int?,
-      chainTo: json['chainTo'] as int?,
-      height: json['duration'] as int?,
+      value: json['value'] as num?,
+      chainFrom: json['chainFrom'] as num?,
+      chainTo: json['chainTo'] as num?,
+      height: json['duration'] as num?,
     );
 
 Map<String, dynamic> _$PerChainHeightToJson(PerChainHeight instance) {

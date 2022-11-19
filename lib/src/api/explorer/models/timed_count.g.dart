@@ -7,8 +7,8 @@ part of 'timed_count.dart';
 // **************************************************************************
 
 TimedCount _$TimedCountFromJson(Map<String, dynamic> json) => TimedCount(
-      timestamp: json['timestamp'] as int?,
-      totalCountAllChains: json['totalCountAllChains'] as int?,
+      timestamp: json['timestamp'] as num?,
+      totalCountAllChains: json['totalCountAllChains'] as num?,
     );
 
 Map<String, dynamic> _$TimedCountToJson(TimedCount instance) {

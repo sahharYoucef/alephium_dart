@@ -11,6 +11,7 @@ AddressBalance _$AddressBalanceFromJson(Map<String, dynamic> json) =>
       address: json['address'] as bool?,
       balance: json['balance'] as String?,
       balanceHint: json['balanceHint'] as String?,
+      lockedBalanceHint: json['lockedBalanceHint'] as String?,
       lockedBalance: json['lockedBalance'] as String?,
       warning: json['warning'] as String?,
     );
@@ -28,6 +29,7 @@ Map<String, dynamic> _$AddressBalanceToJson(AddressBalance instance) {
   writeNotNull('balance', instance.balance);
   writeNotNull('balanceHint', instance.balanceHint);
   writeNotNull('lockedBalance', instance.lockedBalance);
+  writeNotNull('lockedBalanceHint', instance.lockedBalanceHint);
   writeNotNull('warning', instance.warning);
   return val;
 }

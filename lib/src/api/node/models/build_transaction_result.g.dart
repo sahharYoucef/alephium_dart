@@ -14,7 +14,7 @@ BuildTransactionResult _$BuildTransactionResultFromJson(
       toGroup: json['toGroup'] as num?,
       txId: json['txId'] as String?,
       gasPrice: json['gasPrice'] as String?,
-      gasAmount: _fromJson(json['gasAmount']),
+      gasAmount: json['gasAmount'] as num?,
     );
 
 Map<String, dynamic> _$BuildTransactionResultToJson(

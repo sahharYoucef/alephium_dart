@@ -8,8 +8,8 @@ part of 'unsigned_tx.dart';
 
 UnsignedTx _$UnsignedTxFromJson(Map<String, dynamic> json) => UnsignedTx(
       txId: json['txId'] as String?,
-      version: json['version'] as int?,
-      networkId: json['networkId'] as int?,
+      version: json['version'] as num?,
+      networkId: json['networkId'] as num?,
       scriptOpt: json['scriptOpt'] as String?,
       gasPrice: json['gasPrice'] as String?,
       gasAmount: json['gasAmount'] as num?,

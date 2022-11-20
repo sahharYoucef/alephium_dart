@@ -11,7 +11,7 @@ UnsignedTx _$UnsignedTxFromJson(Map<String, dynamic> json) => UnsignedTx(
       version: json['version'] as num?,
       networkId: json['networkId'] as num?,
       scriptOpt: json['scriptOpt'] as String?,
-      gasPrice: json['gasPrice'] as String?,
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       gasAmount: json['gasAmount'] as num?,
       inputs: (json['inputs'] as List<dynamic>?)
           ?.map((e) => AssetInput.fromJson(e as Map<String, dynamic>))
@@ -34,7 +34,7 @@ Map<String, dynamic> _$UnsignedTxToJson(UnsignedTx instance) {
   writeNotNull('version', instance.version);
   writeNotNull('networkId', instance.networkId);
   writeNotNull('scriptOpt', instance.scriptOpt);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   writeNotNull('gasAmount', instance.gasAmount);
   writeNotNull('inputs', instance.inputs);
   writeNotNull('fixedOutputs', instance.fixedOutputs);

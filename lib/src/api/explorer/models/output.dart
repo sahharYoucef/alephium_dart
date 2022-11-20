@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:alephium_dart/src/api/node/models/token.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -7,14 +8,17 @@ part 'output.g.dart';
 class ExplorerOutput {
   @JsonKey(name: 'address')
   final String? address;
-  @JsonKey(name: 'attoAlphAmount')
-  final String? attoAlphAmount;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? attoAlphAmount;
   @JsonKey(name: 'hint')
-  final int? hint;
+  final num? hint;
   @JsonKey(name: 'key')
   final String? key;
   @JsonKey(name: 'lockTime')
-  final int? lockTime;
+  final num? lockTime;
   @JsonKey(name: 'spent')
   final String? spent;
   @JsonKey(name: 'tokens')

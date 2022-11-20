@@ -11,7 +11,7 @@ BuildScriptTxResult _$BuildScriptTxResultFromJson(Map<String, dynamic> json) =>
       fromGroup: json['fromGroup'] as num?,
       toGroup: json['toGroup'] as num?,
       gasAmount: json['gasAmount'] as num?,
-      gasPrice: json['gasPrice'] as num?,
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       txId: json['txId'] as String?,
       unsignedTx: json['unsignedTx'] as String?,
     );
@@ -30,6 +30,6 @@ Map<String, dynamic> _$BuildScriptTxResultToJson(BuildScriptTxResult instance) {
   writeNotNull('fromGroup', instance.fromGroup);
   writeNotNull('toGroup', instance.toGroup);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   return val;
 }

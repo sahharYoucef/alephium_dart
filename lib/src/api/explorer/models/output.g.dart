@@ -9,10 +9,10 @@ part of 'output.dart';
 ExplorerOutput _$ExplorerOutputFromJson(Map<String, dynamic> json) =>
     ExplorerOutput(
       address: json['address'] as String?,
-      attoAlphAmount: json['attoAlphAmount'] as String?,
-      hint: json['hint'] as int?,
+      attoAlphAmount: fromJsonStringToNum(json['attoAlphAmount'] as String?),
+      hint: json['hint'] as num?,
       key: json['key'] as String?,
-      lockTime: json['lockTime'] as int?,
+      lockTime: json['lockTime'] as num?,
       spent: json['spent'] as String?,
       tokens: (json['tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
@@ -31,7 +31,7 @@ Map<String, dynamic> _$ExplorerOutputToJson(ExplorerOutput instance) {
   }
 
   writeNotNull('address', instance.address);
-  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('attoAlphAmount', toJsonNumToString(instance.attoAlphAmount));
   writeNotNull('hint', instance.hint);
   writeNotNull('key', instance.key);
   writeNotNull('lockTime', instance.lockTime);

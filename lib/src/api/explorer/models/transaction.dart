@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'input.dart';
@@ -19,8 +20,11 @@ class ExplorerTransaction {
   final List<ExplorerOutput>? outputs;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
   @JsonKey(name: 'type')
   final String? type;
   @JsonKey(name: 'lastSeen')

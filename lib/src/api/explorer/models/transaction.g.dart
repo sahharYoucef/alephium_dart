@@ -17,7 +17,7 @@ ExplorerTransaction _$ExplorerTransactionFromJson(Map<String, dynamic> json) =>
       outputs: (json['outputs'] as List<dynamic>?)
           ?.map((e) => ExplorerOutput.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gasPrice: json['gasPrice'] as String?,
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       gasAmount: json['gasAmount'] as num?,
       type: json['type'] as String?,
       lastSeen: json['lastSeen'] as num?,
@@ -40,7 +40,7 @@ Map<String, dynamic> _$ExplorerTransactionToJson(ExplorerTransaction instance) {
   writeNotNull('inputs', instance.inputs);
   writeNotNull('outputs', instance.outputs);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   writeNotNull('type', instance.type);
   writeNotNull('lastSeen', instance.lastSeen);
   writeNotNull('chainFrom', instance.chainFrom);

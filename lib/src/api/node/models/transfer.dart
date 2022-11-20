@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'transaction_destination.dart';
@@ -8,16 +9,19 @@ part 'transfer.g.dart';
 class Transfer {
   @JsonKey(name: 'destinations')
   final List<TransactionDestination>? destinations;
-  @JsonKey(name: 'gas')
-  final num? gas;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(name: 'gasAmount')
+  final num? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
   @JsonKey(name: 'utxosLimit')
   final num? utxosLimit;
 
   Transfer({
     this.destinations,
-    this.gas,
+    this.gasAmount,
     this.gasPrice,
     this.utxosLimit,
   });

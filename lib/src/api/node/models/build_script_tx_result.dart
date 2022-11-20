@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'build_script_tx_result.g.dart';
@@ -14,7 +15,10 @@ class BuildScriptTxResult {
   final num? toGroup;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
   final num? gasPrice;
 
   BuildScriptTxResult({

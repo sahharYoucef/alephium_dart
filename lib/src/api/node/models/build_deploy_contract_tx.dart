@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:alephium_dart/src/api/node/models/token.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -9,16 +10,19 @@ class BuildDeployContractTx {
   final String? fromPublicKey;
   @JsonKey(name: 'bytecode')
   final String? bytecode;
-  @JsonKey(name: 'initialAttoAlphAmount')
-  final String? initialAttoAlphAmount;
+  @JsonKey(
+      name: 'initialAttoAlphAmount',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? initialAttoAlphAmount;
   @JsonKey(name: 'initialTokenAmounts')
   final List<Token>? initialTokenAmounts;
   @JsonKey(name: 'issueTokenAmount')
   final String? issueTokenAmount;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(name: 'gasPrice', fromJson: fromJsonStringToNum)
+  final num? gasPrice;
   @JsonKey(name: 'targetBlockHash')
   final String? targetBlockHash;
 

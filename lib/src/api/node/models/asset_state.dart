@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'token.dart';
@@ -6,8 +7,11 @@ part 'asset_state.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class AssetState {
-  @JsonKey(name: 'attoAlphAmount')
-  final String? attoAlphAmount;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
 

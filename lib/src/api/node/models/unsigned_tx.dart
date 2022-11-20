@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'asset_input.dart';
@@ -15,8 +16,11 @@ class UnsignedTx {
   final num? networkId;
   @JsonKey(name: 'scriptOpt')
   final String? scriptOpt;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
   @JsonKey(name: 'inputs')

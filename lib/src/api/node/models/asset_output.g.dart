@@ -7,7 +7,7 @@ part of 'asset_output.dart';
 // **************************************************************************
 
 AssetOutput _$AssetOutputFromJson(Map<String, dynamic> json) => AssetOutput(
-      attoAlphAmount: json['attoAlphAmount'] as String?,
+      attoAlphAmount: fromJsonStringToNum(json['attoAlphAmount'] as String?),
       address: json['address'] as String?,
       tokens: (json['tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
@@ -30,7 +30,7 @@ Map<String, dynamic> _$AssetOutputToJson(AssetOutput instance) {
 
   writeNotNull('hint', instance.hint);
   writeNotNull('key', instance.key);
-  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('attoAlphAmount', toJsonNumToString(instance.attoAlphAmount));
   writeNotNull('address', instance.address);
   writeNotNull('tokens', instance.tokens);
   writeNotNull('lockTime', instance.lockTime);

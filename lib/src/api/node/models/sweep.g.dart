@@ -9,8 +9,8 @@ part of 'sweep.dart';
 Sweep _$SweepFromJson(Map<String, dynamic> json) => Sweep(
       toAddress: json['toAddress'] as String?,
       lockTime: json['lockTime'] as int?,
-      gas: json['gas'] as int?,
-      gasPrice: json['gasPrice'] as String?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       utxosLimit: json['utxosLimit'] as int?,
     );
 
@@ -25,8 +25,8 @@ Map<String, dynamic> _$SweepToJson(Sweep instance) {
 
   writeNotNull('toAddress', instance.toAddress);
   writeNotNull('lockTime', instance.lockTime);
-  writeNotNull('gas', instance.gas);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasAmount', instance.gasAmount);
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   writeNotNull('utxosLimit', instance.utxosLimit);
   return val;
 }

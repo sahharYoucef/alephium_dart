@@ -14,8 +14,8 @@ BuildScriptTx _$BuildScriptTxFromJson(Map<String, dynamic> json) =>
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
           .toList(),
       gasAmount: json['gasAmount'] as num?,
-      attoAlphAmount: json['attoAlphAmount'] as String?,
-      gasPrice: json['gasPrice'] as String?,
+      attoAlphAmount: fromJsonStringToNum(json['attoAlphAmount'] as String?),
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       targetBlockHash: json['targetBlockHash'] as num?,
     );
 
@@ -32,8 +32,8 @@ Map<String, dynamic> _$BuildScriptTxToJson(BuildScriptTx instance) {
   writeNotNull('bytecode', instance.byteCode);
   writeNotNull('tokens', instance.tokens);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('attoAlphAmount', toJsonNumToString(instance.attoAlphAmount));
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   writeNotNull('targetBlockHash', instance.targetBlockHash);
   return val;
 }

@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'token.dart';
@@ -14,10 +15,16 @@ class BuildScriptTx {
   final List<Token>? tokens;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
-  @JsonKey(name: 'attoAlphAmount')
-  final String? attoAlphAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? attoAlphAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
   @JsonKey(name: 'targetBlockHash')
   final num? targetBlockHash;
 

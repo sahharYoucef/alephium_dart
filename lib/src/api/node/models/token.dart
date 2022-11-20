@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'token.g.dart';
@@ -6,8 +7,12 @@ part 'token.g.dart';
 class Token {
   @JsonKey(name: 'id')
   final String? id;
-  @JsonKey(name: 'amount')
-  final String? amount;
+  @JsonKey(
+    name: 'amount',
+    fromJson: fromJsonStringToInt,
+    toJson: toJsonIntToString,
+  )
+  final int? amount;
 
   Token({
     this.id,

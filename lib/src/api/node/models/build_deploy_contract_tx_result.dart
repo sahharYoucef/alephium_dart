@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'build_deploy_contract_tx_result.g.dart';
@@ -16,8 +17,11 @@ class BuildDeployContractTxResult {
   final num? toGroup;
   @JsonKey(name: 'gasAmount')
   final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
 
   BuildDeployContractTxResult({
     this.txId,

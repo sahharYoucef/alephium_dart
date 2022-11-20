@@ -7,11 +7,11 @@ part of 'tx_status.dart';
 // **************************************************************************
 
 TxStatus _$TxStatusFromJson(Map<String, dynamic> json) => TxStatus(
-      txIndex: json['txIndex'] as num?,
+      txIndex: json['txIndex'] as int?,
       blockHash: json['blockHash'] as String?,
-      chainConfirmations: json['chainConfirmations'] as num?,
-      toGroupConfirmations: json['toGroupConfirmations'] as num?,
-      fromGroupConfirmations: json['fromGroupConfirmations'] as num?,
+      chainConfirmations: json['chainConfirmations'] as int?,
+      toGroupConfirmations: json['toGroupConfirmations'] as int?,
+      fromGroupConfirmations: json['fromGroupConfirmations'] as int?,
       type: json['type'] as String?,
     );
 

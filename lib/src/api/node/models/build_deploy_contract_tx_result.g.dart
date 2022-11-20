@@ -12,10 +12,10 @@ BuildDeployContractTxResult _$BuildDeployContractTxResultFromJson(
       txId: json['txId'] as String?,
       contractAddress: json['contractAddress'] as String?,
       unsignedTx: json['unsignedTx'] as String?,
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
-      gasAmount: json['gasAmount'] as num?,
-      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
     );
 
 Map<String, dynamic> _$BuildDeployContractTxResultToJson(
@@ -34,6 +34,6 @@ Map<String, dynamic> _$BuildDeployContractTxResultToJson(
   writeNotNull('fromGroup', instance.fromGroup);
   writeNotNull('toGroup', instance.toGroup);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   return val;
 }

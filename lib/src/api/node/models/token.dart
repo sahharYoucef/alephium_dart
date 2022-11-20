@@ -9,10 +9,10 @@ class Token {
   final String? id;
   @JsonKey(
     name: 'amount',
-    fromJson: fromJsonStringToInt,
-    toJson: toJsonIntToString,
+    fromJson: fromJsonStringToBigInt,
+    toJson: toJsonBigIntToString,
   )
-  final int? amount;
+  final BigInt? amount;
 
   Token({
     this.id,

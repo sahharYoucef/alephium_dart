@@ -9,7 +9,7 @@ part of 'hashrate.dart';
 Hashrate _$HashrateFromJson(Map<String, dynamic> json) => Hashrate(
       hashrate: json['hashrate'] as num?,
       value: json['value'] as num?,
-      timestamp: json['timestamp'] as num?,
+      timestamp: json['timestamp'] as int?,
     );
 
 Map<String, dynamic> _$HashrateToJson(Hashrate instance) {

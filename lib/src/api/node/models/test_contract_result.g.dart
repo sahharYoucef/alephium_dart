@@ -8,7 +8,7 @@ part of 'test_contract_result.dart';
 
 TestContractResult _$TestContractResultFromJson(Map<String, dynamic> json) =>
     TestContractResult(
-      gasUsed: json['gasUsed'] as num?,
+      gasUsed: json['gasUsed'] as int?,
       address: json['address'] as String?,
       codeHash: json['codeHash'] as String?,
       debugMessages: json['debugMessages'] == null

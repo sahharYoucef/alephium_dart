@@ -13,9 +13,9 @@ class Sweep {
   final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
   final int? utxosLimit;
 

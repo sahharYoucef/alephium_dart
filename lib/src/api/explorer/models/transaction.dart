@@ -19,20 +19,20 @@ class ExplorerTransaction {
   @JsonKey(name: 'outputs')
   final List<ExplorerOutput>? outputs;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'type')
   final String? type;
   @JsonKey(name: 'lastSeen')
-  final num? lastSeen;
+  final int? lastSeen;
   @JsonKey(name: 'chainFrom')
-  final num? chainFrom;
+  final int? chainFrom;
   @JsonKey(name: 'chainTo')
-  final num? chainTo;
+  final int? chainTo;
 
   ExplorerTransaction({
     this.hash,

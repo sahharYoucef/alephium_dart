@@ -7,9 +7,9 @@ part 'unconfirmed_transactions.g.dart';
 @JsonSerializable(includeIfNull: false)
 class UnconfirmedTransactions {
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
   @JsonKey(name: 'unconfirmedTransactions')
   final List<TransactionTemplate>? unconfirmedTransactions;
 

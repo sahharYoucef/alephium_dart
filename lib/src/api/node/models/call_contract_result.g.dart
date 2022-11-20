@@ -8,7 +8,7 @@ part of 'call_contract_result.dart';
 
 CallContractResult _$CallContractResultFromJson(Map<String, dynamic> json) =>
     CallContractResult(
-      gasUsed: json['gasUsed'] as num?,
+      gasUsed: json['gasUsed'] as int?,
       address: json['address'] as String?,
       codeHash: json['codeHash'] as String?,
       debugMessages: json['debugMessages'] == null

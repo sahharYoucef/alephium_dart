@@ -13,8 +13,8 @@ BuildSweepAddressTransactionsResult
               ?.map((e) =>
                   SweepAddressTransaction.fromJson(e as Map<String, dynamic>))
               .toList(),
-          fromGroup: json['fromGroup'] as num?,
-          toGroup: json['toGroup'] as num?,
+          fromGroup: json['fromGroup'] as int?,
+          toGroup: json['toGroup'] as int?,
         );
 
 Map<String, dynamic> _$BuildSweepAddressTransactionsResultToJson(

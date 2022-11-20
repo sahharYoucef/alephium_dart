@@ -9,17 +9,17 @@ class BlockEntry {
   @JsonKey(name: 'hash')
   final String? hash;
   @JsonKey(name: 'height')
-  final num? height;
+  final int? height;
   @JsonKey(name: 'timestamp')
-  final num? timestamp;
+  final int? timestamp;
   @JsonKey(name: 'nonce')
   final num? nonce;
   @JsonKey(name: 'version')
   final num? version;
   @JsonKey(name: 'chainFrom')
-  final num? chainFrom;
+  final int? chainFrom;
   @JsonKey(name: 'chainTo')
-  final num? chainTo;
+  final int? chainTo;
   @JsonKey(name: 'deps')
   final List<String>? deps;
   @JsonKey(name: 'transactions')

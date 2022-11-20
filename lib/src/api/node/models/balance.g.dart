@@ -7,12 +7,12 @@ part of 'balance.dart';
 // **************************************************************************
 
 Balance _$BalanceFromJson(Map<String, dynamic> json) => Balance(
-      lockedBalance: json['lockedBalance'] as String?,
-      balance: json['balance'] as String?,
+      lockedBalance: fromJsonStringToBigInt(json['lockedBalance'] as String?),
+      balance: fromJsonStringToBigInt(json['balance'] as String?),
       balanceHint: json['balanceHint'] as String?,
       warning: json['warning'] as String?,
       lockedBalanceHint: json['lockedBalanceHint'] as String?,
-      utxoNum: json['utxoNum'] as num?,
+      utxoNum: json['utxoNum'] as int?,
       tokenBalances: (json['tokenBalances'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -30,9 +30,9 @@ Map<String, dynamic> _$BalanceToJson(Balance instance) {
     }
   }
 
-  writeNotNull('lockedBalance', instance.lockedBalance);
+  writeNotNull('lockedBalance', toJsonBigIntToString(instance.lockedBalance));
   writeNotNull('lockedBalanceHint', instance.lockedBalanceHint);
-  writeNotNull('balance', instance.balance);
+  writeNotNull('balance', toJsonBigIntToString(instance.balance));
   writeNotNull('balanceHint', instance.balanceHint);
   writeNotNull('tokenBalances', instance.tokenBalances);
   writeNotNull('lockedTokenBalances', instance.lockedTokenBalances);

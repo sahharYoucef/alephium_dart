@@ -7,8 +7,8 @@ part of 'peer_status.dart';
 // **************************************************************************
 
 PeerStatus _$PeerStatusFromJson(Map<String, dynamic> json) => PeerStatus(
-      until: json['until'] as num?,
-      value: json['value'] as String?,
+      until: json['until'] as int?,
+      value: json['value'] as int?,
       type: json['type'] as String?,
     );
 

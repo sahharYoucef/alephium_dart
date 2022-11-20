@@ -11,14 +11,13 @@ class TransactionDestination {
   final String? address;
   @JsonKey(
       name: 'attoAlphAmount',
-      includeIfNull: false,
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'tokens', includeIfNull: false)
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime', includeIfNull: false)
-  final num? lockTime;
+  final int? lockTime;
   @JsonKey(name: 'message', includeIfNull: false)
   final String? message;
 

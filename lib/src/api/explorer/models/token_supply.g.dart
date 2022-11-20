@@ -7,7 +7,7 @@ part of 'token_supply.dart';
 // **************************************************************************
 
 TokenSupply _$TokenSupplyFromJson(Map<String, dynamic> json) => TokenSupply(
-      timestamp: json['timestamp'] as num?,
+      timestamp: json['timestamp'] as int?,
       total: json['total'] as String?,
       circulating: json['circulating'] as String?,
       reserved: json['reserved'] as String?,

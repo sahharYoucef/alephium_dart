@@ -14,7 +14,7 @@ class CallContractResult {
   @JsonKey(name: 'codeHash')
   final String? codeHash;
   @JsonKey(name: 'gasUsed')
-  final num? gasUsed;
+  final int? gasUsed;
   @JsonKey(name: 'debugMessages')
   final DebugMessage? debugMessages;
   @JsonKey(name: 'contracts')

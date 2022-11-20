@@ -7,11 +7,11 @@ class PerChainHeight {
   @JsonKey(name: 'value')
   final num? value;
   @JsonKey(name: 'chainFrom')
-  final num? chainFrom;
+  final int? chainFrom;
   @JsonKey(name: 'chainTo')
-  final num? chainTo;
+  final int? chainTo;
   @JsonKey(name: 'duration')
-  final num? height;
+  final int? height;
 
   PerChainHeight({
     this.value,

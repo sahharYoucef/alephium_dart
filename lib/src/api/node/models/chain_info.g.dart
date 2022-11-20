@@ -7,7 +7,7 @@ part of 'chain_info.dart';
 // **************************************************************************
 
 ChainInfo _$ChainInfoFromJson(Map<String, dynamic> json) => ChainInfo(
-      currentHeight: json['currentHeight'] as num?,
+      currentHeight: json['currentHeight'] as int?,
     );
 
 Map<String, dynamic> _$ChainInfoToJson(ChainInfo instance) {

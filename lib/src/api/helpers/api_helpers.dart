@@ -21,3 +21,11 @@ double? fromJsonStringToDouble(String? value) {
 String? toJsonDoubleToString(double? value) {
   return value.toString();
 }
+
+BigInt? fromJsonStringToBigInt(String? value) {
+  return BigInt.tryParse("$value");
+}
+
+String? toJsonBigIntToString(BigInt? value) {
+  return value.toString();
+}

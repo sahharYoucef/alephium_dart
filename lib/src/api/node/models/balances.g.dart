@@ -7,7 +7,7 @@ part of 'balances.dart';
 // **************************************************************************
 
 Balances _$BalancesFromJson(Map<String, dynamic> json) => Balances(
-      totalBalance: json['totalBalance'] as String?,
+      totalBalance: fromJsonStringToBigInt(json['totalBalance'] as String?),
       totalBalanceHint: json['totalBalanceHint'] as String?,
       balances: (json['balances'] as List<dynamic>?)
           ?.map((e) => AddressBalance.fromJson(e as Map<String, dynamic>))
@@ -23,7 +23,7 @@ Map<String, dynamic> _$BalancesToJson(Balances instance) {
     }
   }
 
-  writeNotNull('totalBalance', instance.totalBalance);
+  writeNotNull('totalBalance', toJsonBigIntToString(instance.totalBalance));
   writeNotNull('totalBalanceHint', instance.totalBalanceHint);
   writeNotNull('balances', instance.balances);
   return val;

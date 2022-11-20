@@ -9,7 +9,7 @@ class Hashrate {
   @JsonKey(name: 'value')
   final num? value;
   @JsonKey(name: 'timestamp')
-  final num? timestamp;
+  final int? timestamp;
 
   Hashrate({
     this.hashrate,

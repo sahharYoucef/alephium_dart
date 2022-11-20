@@ -13,9 +13,9 @@ class Output {
   final String? key;
   @JsonKey(
       name: 'attoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'address')
   final String? address;
   @JsonKey(name: 'tokens')

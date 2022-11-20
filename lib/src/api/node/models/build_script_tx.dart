@@ -14,17 +14,17 @@ class BuildScriptTx {
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'attoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'targetBlockHash')
   final num? targetBlockHash;
 

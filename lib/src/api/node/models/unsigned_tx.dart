@@ -18,11 +18,11 @@ class UnsignedTx {
   final String? scriptOpt;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(name: 'inputs')
   final List<AssetInput>? inputs;
   @JsonKey(name: 'fixedOutputs')

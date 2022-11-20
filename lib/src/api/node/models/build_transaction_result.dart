@@ -8,18 +8,18 @@ class BuildTransactionResult {
   @JsonKey(name: 'unsignedTx')
   final String? unsignedTx;
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
   @JsonKey(name: 'txId')
   final String? txId;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
 
   BuildTransactionResult({
     this.unsignedTx,

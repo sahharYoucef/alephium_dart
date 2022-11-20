@@ -8,7 +8,7 @@ part of 'per_chain_timed_count.dart';
 
 PerChainTimedCount _$PerChainTimedCountFromJson(Map<String, dynamic> json) =>
     PerChainTimedCount(
-      timestamp: json['timestamp'] as num?,
+      timestamp: json['timestamp'] as int?,
       totalCountPerChain: (json['totalCountPerChain'] as List<dynamic>?)
           ?.map((e) => PerChainCount.fromJson(e as Map<String, dynamic>))
           .toList(),

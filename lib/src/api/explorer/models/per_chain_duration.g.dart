@@ -9,8 +9,8 @@ part of 'per_chain_duration.dart';
 PerChainDuration _$PerChainDurationFromJson(Map<String, dynamic> json) =>
     PerChainDuration(
       value: json['value'] as num?,
-      chainFrom: json['chainFrom'] as num?,
-      chainTo: json['chainTo'] as num?,
+      chainFrom: json['chainFrom'] as int?,
+      chainTo: json['chainTo'] as int?,
       duration: json['duration'] as num?,
     );
 

@@ -7,7 +7,7 @@ part of 'output_ref.dart';
 // **************************************************************************
 
 OutputRef _$OutputRefFromJson(Map<String, dynamic> json) => OutputRef(
-      hint: json['hint'] as num?,
+      hint: json['hint'] as int?,
       key: json['key'] as String?,
     );
 

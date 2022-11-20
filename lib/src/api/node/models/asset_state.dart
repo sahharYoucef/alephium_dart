@@ -9,9 +9,9 @@ part 'asset_state.g.dart';
 class AssetState {
   @JsonKey(
       name: 'attoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
 

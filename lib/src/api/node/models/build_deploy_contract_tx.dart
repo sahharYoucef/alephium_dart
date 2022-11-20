@@ -12,17 +12,23 @@ class BuildDeployContractTx {
   final String? bytecode;
   @JsonKey(
       name: 'initialAttoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? initialAttoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? initialAttoAlphAmount;
   @JsonKey(name: 'initialTokenAmounts')
   final List<Token>? initialTokenAmounts;
-  @JsonKey(name: 'issueTokenAmount')
-  final String? issueTokenAmount;
+  @JsonKey(
+      name: 'issueTokenAmount',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? issueTokenAmount;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
-  @JsonKey(name: 'gasPrice', fromJson: fromJsonStringToNum)
-  final num? gasPrice;
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'targetBlockHash')
   final String? targetBlockHash;
 

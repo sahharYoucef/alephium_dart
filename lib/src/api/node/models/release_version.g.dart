@@ -8,9 +8,9 @@ part of 'release_version.dart';
 
 ReleaseVersion _$ReleaseVersionFromJson(Map<String, dynamic> json) =>
     ReleaseVersion(
-      major: json['major'] as num?,
-      minor: json['minor'] as num?,
-      patch: json['patch'] as num?,
+      major: json['major'] as int?,
+      minor: json['minor'] as int?,
+      patch: json['patch'] as int?,
     );
 
 Map<String, dynamic> _$ReleaseVersionToJson(ReleaseVersion instance) {

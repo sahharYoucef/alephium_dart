@@ -8,9 +8,9 @@ class DecodeUnsignedTxResult {
   @JsonKey(name: 'unsignedTx')
   final UnsignedTx? unsignedTx;
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
 
   DecodeUnsignedTxResult({
     this.unsignedTx,

@@ -11,10 +11,10 @@ BuildSweepAddressTransactions _$BuildSweepAddressTransactionsFromJson(
     BuildSweepAddressTransactions(
       fromPublicKey: json['fromPublicKey'] as String?,
       toAddress: json['toAddress'] as String?,
-      lockTime: json['lockTime'] as num?,
-      gasAmount: json['gasAmount'] as num?,
-      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
-      utxosLimit: json['utxosLimit'] as num?,
+      lockTime: json['lockTime'] as int?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      utxosLimit: json['utxosLimit'] as int?,
     );
 
 Map<String, dynamic> _$BuildSweepAddressTransactionsToJson(
@@ -31,7 +31,7 @@ Map<String, dynamic> _$BuildSweepAddressTransactionsToJson(
   writeNotNull('toAddress', instance.toAddress);
   writeNotNull('lockTime', instance.lockTime);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('utxosLimit', instance.utxosLimit);
   return val;
 }

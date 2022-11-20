@@ -15,13 +15,13 @@ class BuildTransaction {
   @JsonKey(name: 'utxos', includeIfNull: false)
   final List<OutputRef>? utxos;
   @JsonKey(name: 'gasAmount', includeIfNull: false)
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
       includeIfNull: false,
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'targetBlockHash', includeIfNull: false)
   final String? targetBlockHash;
 

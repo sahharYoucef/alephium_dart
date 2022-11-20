@@ -9,10 +9,10 @@ part of 'block_header_entry.dart';
 BlockHeaderEntry _$BlockHeaderEntryFromJson(Map<String, dynamic> json) =>
     BlockHeaderEntry(
       hash: json['hash'] as String?,
-      height: json['height'] as num?,
-      timestamp: json['timestamp'] as num?,
-      chainFrom: json['chainFrom'] as num?,
-      chainTo: json['chainTo'] as num?,
+      height: json['height'] as int?,
+      timestamp: json['timestamp'] as int?,
+      chainFrom: json['chainFrom'] as int?,
+      chainTo: json['chainTo'] as int?,
       deps: (json['deps'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 

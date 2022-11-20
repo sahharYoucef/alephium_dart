@@ -10,15 +10,15 @@ class ExplorerOutput {
   final String? address;
   @JsonKey(
       name: 'attoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'hint')
-  final num? hint;
+  final int? hint;
   @JsonKey(name: 'key')
   final String? key;
   @JsonKey(name: 'lockTime')
-  final num? lockTime;
+  final int? lockTime;
   @JsonKey(name: 'spent')
   final String? spent;
   @JsonKey(name: 'tokens')

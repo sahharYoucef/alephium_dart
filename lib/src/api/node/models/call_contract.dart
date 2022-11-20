@@ -8,7 +8,7 @@ part 'call_contract.g.dart';
 @JsonSerializable(includeIfNull: false)
 class CallContract {
   @JsonKey(name: 'group')
-  final num? group;
+  final int? group;
   @JsonKey(name: 'bytecode')
   final String? bytecode;
   @JsonKey(name: 'txId')

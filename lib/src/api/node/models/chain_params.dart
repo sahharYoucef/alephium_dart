@@ -7,11 +7,11 @@ class ChainParams {
   @JsonKey(name: 'networkId')
   final String? networkId;
   @JsonKey(name: 'numZerosAtLeastInHash')
-  final num? numZerosAtLeastInHash;
+  final int? numZerosAtLeastInHash;
   @JsonKey(name: 'groupNumPerBroker')
-  final num? groupNumPerBroker;
+  final int? groupNumPerBroker;
   @JsonKey(name: 'groups')
-  final num? groups;
+  final int? groups;
 
   ChainParams({
     this.networkId,

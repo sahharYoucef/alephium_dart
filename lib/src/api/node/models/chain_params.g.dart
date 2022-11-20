@@ -8,9 +8,9 @@ part of 'chain_params.dart';
 
 ChainParams _$ChainParamsFromJson(Map<String, dynamic> json) => ChainParams(
       networkId: json['networkId'] as String?,
-      numZerosAtLeastInHash: json['numZerosAtLeastInHash'] as num?,
-      groupNumPerBroker: json['groupNumPerBroker'] as num?,
-      groups: json['groups'] as num?,
+      numZerosAtLeastInHash: json['numZerosAtLeastInHash'] as int?,
+      groupNumPerBroker: json['groupNumPerBroker'] as int?,
+      groups: json['groups'] as int?,
     );
 
 Map<String, dynamic> _$ChainParamsToJson(ChainParams instance) {

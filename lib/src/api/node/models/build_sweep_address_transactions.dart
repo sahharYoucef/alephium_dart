@@ -10,16 +10,16 @@ class BuildSweepAddressTransactions {
   @JsonKey(name: 'toAddress')
   final String? toAddress;
   @JsonKey(name: 'lockTime')
-  final num? lockTime;
+  final int? lockTime;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
-  final num? utxosLimit;
+  final int? utxosLimit;
 
   BuildSweepAddressTransactions({
     this.fromPublicKey,

@@ -8,9 +8,9 @@ part of 'peer_address.dart';
 
 PeerAddress _$PeerAddressFromJson(Map<String, dynamic> json) => PeerAddress(
       address: json['address'] as String?,
-      restPort: json['restPort'] as num?,
-      wsPort: json['wsPort'] as num?,
-      minerApiPort: json['minerApiPort'] as num?,
+      restPort: json['restPort'] as int?,
+      wsPort: json['wsPort'] as int?,
+      minerApiPort: json['minerApiPort'] as int?,
     );
 
 Map<String, dynamic> _$PeerAddressToJson(PeerAddress instance) {

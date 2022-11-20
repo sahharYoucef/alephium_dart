@@ -15,9 +15,9 @@ BuildMultisig _$BuildMultisigFromJson(Map<String, dynamic> json) =>
           ?.map(
               (e) => TransactionDestination.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gasAmount: json['gasAmount'] as num?,
-      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
-      utxosLimit: json['utxosLimit'] as num?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      utxosLimit: json['utxosLimit'] as int?,
     );
 
 Map<String, dynamic> _$BuildMultisigToJson(BuildMultisig instance) {
@@ -32,7 +32,7 @@ Map<String, dynamic> _$BuildMultisigToJson(BuildMultisig instance) {
   writeNotNull('fromPublicKeys', instance.fromPublicKeys);
   writeNotNull('destinations', instance.destinations);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('utxosLimit', instance.utxosLimit);
   return val;
 }

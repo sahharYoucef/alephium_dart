@@ -8,14 +8,14 @@ part 'fixed_asset_output.g.dart';
 @JsonSerializable(includeIfNull: false)
 class FixedAssetOutput {
   @JsonKey(name: 'hint')
-  final num? hint;
+  final int? hint;
   @JsonKey(name: 'key')
   final String? key;
   @JsonKey(
       name: 'attoAlphAmount',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? attoAlphAmount;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime')

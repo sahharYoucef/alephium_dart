@@ -5,7 +5,7 @@ part 'token_supply.g.dart';
 @JsonSerializable(includeIfNull: false)
 class TokenSupply {
   @JsonKey(name: 'timestamp')
-  final num? timestamp;
+  final int? timestamp;
   @JsonKey(name: 'total')
   final String? total;
   @JsonKey(name: 'circulating')

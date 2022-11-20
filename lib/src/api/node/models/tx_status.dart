@@ -5,15 +5,15 @@ part 'tx_status.g.dart';
 @JsonSerializable(includeIfNull: false)
 class TxStatus {
   @JsonKey(name: 'txIndex')
-  final num? txIndex;
+  final int? txIndex;
   @JsonKey(name: 'blockHash')
   final String? blockHash;
   @JsonKey(name: 'chainConfirmations')
-  final num? chainConfirmations;
+  final int? chainConfirmations;
   @JsonKey(name: 'toGroupConfirmations')
-  final num? toGroupConfirmations;
+  final int? toGroupConfirmations;
   @JsonKey(name: 'fromGroupConfirmations')
-  final num? fromGroupConfirmations;
+  final int? fromGroupConfirmations;
   @JsonKey(name: 'type')
   final String? type;
 

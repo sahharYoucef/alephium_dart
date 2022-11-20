@@ -9,8 +9,8 @@ part of 'inter_clique_peer_info.dart';
 InterCliquePeerInfo _$InterCliquePeerInfoFromJson(Map<String, dynamic> json) =>
     InterCliquePeerInfo(
       cliqueId: json['cliqueId'] as String?,
-      brokerId: json['brokerId'] as num?,
-      groupNumPerBroker: json['groupNumPerBroker'] as num?,
+      brokerId: json['brokerId'] as int?,
+      groupNumPerBroker: json['groupNumPerBroker'] as int?,
       address: json['address'] as Map<String, dynamic>?,
       isSynced: json['isSynced'] as bool?,
       clientVersion: json['clientVersion'] as String?,

@@ -6,7 +6,7 @@ part 'test_contract.g.dart';
 @JsonSerializable(includeIfNull: false)
 class TestContract {
   @JsonKey(name: 'group')
-  final num? group;
+  final int? group;
   @JsonKey(name: 'worldStateBlockHash')
   final String? worldStateBlockHash;
   @JsonKey(name: 'txId')

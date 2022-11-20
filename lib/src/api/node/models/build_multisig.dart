@@ -12,14 +12,14 @@ class BuildMultisig {
   @JsonKey(name: 'destinations')
   final List<TransactionDestination>? destinations;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
-  final num? utxosLimit;
+  final int? utxosLimit;
 
   BuildMultisig({
     this.fromPublicKeys,

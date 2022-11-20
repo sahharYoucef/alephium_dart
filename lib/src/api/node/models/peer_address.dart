@@ -7,11 +7,11 @@ class PeerAddress {
   @JsonKey(name: 'address')
   final String? address;
   @JsonKey(name: 'restPort')
-  final num? restPort;
+  final int? restPort;
   @JsonKey(name: 'wsPort')
-  final num? wsPort;
+  final int? wsPort;
   @JsonKey(name: 'minerApiPort')
-  final num? minerApiPort;
+  final int? minerApiPort;
 
   PeerAddress({
     this.address,

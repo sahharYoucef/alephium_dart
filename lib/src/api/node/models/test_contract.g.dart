@@ -7,7 +7,7 @@ part of 'test_contract.dart';
 // **************************************************************************
 
 TestContract _$TestContractFromJson(Map<String, dynamic> json) => TestContract(
-      group: json['group'] as num?,
+      group: json['group'] as int?,
       address: json['address'] as String?,
       existingContracts: (json['existingContracts'] as List<dynamic>?)
           ?.map((e) => e as String)

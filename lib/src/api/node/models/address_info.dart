@@ -9,7 +9,7 @@ class AddressInfo {
   @JsonKey(name: 'publicKey')
   final String? publicKey;
   @JsonKey(name: 'group')
-  final num? group;
+  final int? group;
   @JsonKey(name: 'path')
   final String? path;
 

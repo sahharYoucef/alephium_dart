@@ -9,8 +9,8 @@ part of 'transfer_result.dart';
 TransferResult _$TransferResultFromJson(Map<String, dynamic> json) =>
     TransferResult(
       txId: json['txId'] as String?,
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
     );
 
 Map<String, dynamic> _$TransferResultToJson(TransferResult instance) {

@@ -12,8 +12,8 @@ DecodeUnsignedTxResult _$DecodeUnsignedTxResultFromJson(
       unsignedTx: json['unsignedTx'] == null
           ? null
           : UnsignedTx.fromJson(json['unsignedTx'] as Map<String, dynamic>),
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
     );
 
 Map<String, dynamic> _$DecodeUnsignedTxResultToJson(

@@ -17,12 +17,12 @@ ExplorerTransaction _$ExplorerTransactionFromJson(Map<String, dynamic> json) =>
       outputs: (json['outputs'] as List<dynamic>?)
           ?.map((e) => ExplorerOutput.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
-      gasAmount: json['gasAmount'] as num?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      gasAmount: json['gasAmount'] as int?,
       type: json['type'] as String?,
-      lastSeen: json['lastSeen'] as num?,
-      chainFrom: json['chainFrom'] as num?,
-      chainTo: json['chainTo'] as num?,
+      lastSeen: json['lastSeen'] as int?,
+      chainFrom: json['chainFrom'] as int?,
+      chainTo: json['chainTo'] as int?,
     );
 
 Map<String, dynamic> _$ExplorerTransactionToJson(ExplorerTransaction instance) {
@@ -40,7 +40,7 @@ Map<String, dynamic> _$ExplorerTransactionToJson(ExplorerTransaction instance) {
   writeNotNull('inputs', instance.inputs);
   writeNotNull('outputs', instance.outputs);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('type', instance.type);
   writeNotNull('lastSeen', instance.lastSeen);
   writeNotNull('chainFrom', instance.chainFrom);

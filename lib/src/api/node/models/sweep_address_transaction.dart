@@ -10,12 +10,12 @@ class SweepAddressTransaction {
   @JsonKey(name: 'unsignedTx')
   final String? unsignedTx;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(
       name: 'gasPrice',
-      fromJson: fromJsonStringToNum,
-      toJson: toJsonNumToString)
-  final num? gasPrice;
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
 
   SweepAddressTransaction({
     this.txId,

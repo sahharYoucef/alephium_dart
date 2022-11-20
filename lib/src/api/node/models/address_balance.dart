@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'address_balance.g.dart';
@@ -6,12 +7,18 @@ part 'address_balance.g.dart';
 class AddressBalance {
   @JsonKey(name: 'address')
   final bool? address;
-  @JsonKey(name: 'balance')
-  final String? balance;
+  @JsonKey(
+      name: 'balance',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? balance;
   @JsonKey(name: 'balanceHint')
   final String? balanceHint;
-  @JsonKey(name: 'lockedBalance')
-  final String? lockedBalance;
+  @JsonKey(
+      name: 'lockedBalance',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? lockedBalance;
   @JsonKey(name: 'lockedBalanceHint')
   final String? lockedBalanceHint;
   @JsonKey(name: 'warning')

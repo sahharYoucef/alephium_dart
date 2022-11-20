@@ -3,7 +3,7 @@ num? fromJsonStringToNum(String? value) {
 }
 
 String? toJsonNumToString(num? value) {
-  return value.toString();
+  return value?.toString();
 }
 
 int? fromJsonStringToInt(String? value) {
@@ -11,7 +11,7 @@ int? fromJsonStringToInt(String? value) {
 }
 
 String? toJsonIntToString(int? value) {
-  return value.toString();
+  return value?.toString();
 }
 
 double? fromJsonStringToDouble(String? value) {
@@ -19,7 +19,7 @@ double? fromJsonStringToDouble(String? value) {
 }
 
 String? toJsonDoubleToString(double? value) {
-  return value.toString();
+  return value?.toString();
 }
 
 BigInt? fromJsonStringToBigInt(String? value) {
@@ -27,5 +27,5 @@ BigInt? fromJsonStringToBigInt(String? value) {
 }
 
 String? toJsonBigIntToString(BigInt? value) {
-  return value.toString();
+  return value?.toString();
 }

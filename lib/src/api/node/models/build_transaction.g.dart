@@ -17,7 +17,7 @@ BuildTransaction _$BuildTransactionFromJson(Map<String, dynamic> json) =>
           ?.map((e) => OutputRef.fromJson(e as Map<String, dynamic>))
           .toList(),
       gasAmount: json['gasAmount'] as num?,
-      gasPrice: json['gasPrice'] as String?,
+      gasPrice: fromJsonStringToNum(json['gasPrice'] as String?),
       targetBlockHash: json['targetBlockHash'] as String?,
     );
 
@@ -34,7 +34,7 @@ Map<String, dynamic> _$BuildTransactionToJson(BuildTransaction instance) {
   writeNotNull('destinations', instance.destinations);
   writeNotNull('utxos', instance.utxos);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonNumToString(instance.gasPrice));
   writeNotNull('targetBlockHash', instance.targetBlockHash);
   return val;
 }

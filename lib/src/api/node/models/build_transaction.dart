@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'transaction_destination.dart';
@@ -15,8 +16,12 @@ class BuildTransaction {
   final List<OutputRef>? utxos;
   @JsonKey(name: 'gasAmount', includeIfNull: false)
   final num? gasAmount;
-  @JsonKey(name: 'gasPrice', includeIfNull: false)
-  final String? gasPrice;
+  @JsonKey(
+      name: 'gasPrice',
+      includeIfNull: false,
+      fromJson: fromJsonStringToNum,
+      toJson: toJsonNumToString)
+  final num? gasPrice;
   @JsonKey(name: 'targetBlockHash', includeIfNull: false)
   final String? targetBlockHash;
 

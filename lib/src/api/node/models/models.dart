@@ -46,3 +46,4 @@ export 'wallet_restore_result.dart';
 export 'wallet_status.dart';
 export 'wallet_unlock.dart';
 export 'transaction_destination.dart';
+export 'token.dart';

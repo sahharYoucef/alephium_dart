@@ -17,7 +17,6 @@ abstract class PasswordCrypto {
         mode: AESMode.gcm,
       ),
     );
-    print(derivedKey.length);
     final iv = IV.fromLength(ivByteLength);
     final cipher = encrypter.encrypt(data, iv: iv);
     final payload = {
@@ -42,7 +41,6 @@ abstract class PasswordCrypto {
 
   static String _decrypt(
       List<int> iv, List<int> encrypted, List<int> derivedKey) {
-    print(derivedKey.length);
     final Encrypter encrypter = Encrypter(
       AES(
         Key(Uint8List.fromList(derivedKey)),

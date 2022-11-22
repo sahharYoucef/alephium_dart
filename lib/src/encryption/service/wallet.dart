@@ -34,7 +34,6 @@ class WalletService {
         newAddressData.index,
         skipAddressIndexes,
       );
-      print("nextAddressIndex : $nextAddressIndex");
       newAddressData = _deriveAddressAndKeys(
         _seed,
         index: nextAddressIndex,

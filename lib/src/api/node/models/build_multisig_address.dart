@@ -7,7 +7,7 @@ class BuildMultisigAddress {
   @JsonKey(name: 'keys')
   final List<String>? keys;
   @JsonKey(name: 'mrequired')
-  final num? mrequired;
+  final int? mrequired;
 
   BuildMultisigAddress({
     this.keys,

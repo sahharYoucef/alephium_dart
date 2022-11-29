@@ -22,30 +22,35 @@ part 'contracts_client.g.dart';
 abstract class ContractClient {
   factory ContractClient(Dio dio, {String baseUrl}) = _ContractClient;
   @POST("/contracts/compile-script")
+  @Headers({"Content-Type": "application/json"})
   Future<CompileScriptResult> postContractsCompileScript(
     @Body() Script data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/contracts/unsigned-tx/execute-script")
+  @Headers({"Content-Type": "application/json"})
   Future<BuildScriptTxResult> postContractsUnsignedTxExecuteScript(
     @Body() BuildScriptTx data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/contracts/compile-contract")
+  @Headers({"Content-Type": "application/json"})
   Future<CompileContractResult> postContractsCompileContract(
     @Body() Contract data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/contracts/compile-project")
+  @Headers({"Content-Type": "application/json"})
   Future<CompileProjectResult> postContractsCompileProject(
     @Body() Project data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/contracts/unsigned-tx/deploy-contract")
+  @Headers({"Content-Type": "application/json"})
   Future<BuildDeployContractTxResult> postContractsUnsignedTxDeployContract(
     @Body() BuildDeployContractTx data, {
     @Headers() Map<String, dynamic>? params,
@@ -59,12 +64,14 @@ abstract class ContractClient {
   });
 
   @POST("/contracts/test-contract")
+  @Headers({"Content-Type": "application/json"})
   Future<TestContractResult> postContractsTestContract(
     @Body() TestContract data, {
     @Headers() Map<String, dynamic>? params,
   });
 
   @POST("/contracts/test-contract")
+  @Headers({"Content-Type": "application/json"})
   Future<CallContractResult> postContractsCallContract(
     @Body() CallContract data, {
     @Headers() Map<String, dynamic>? params,

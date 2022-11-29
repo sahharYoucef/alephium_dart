@@ -10,7 +10,7 @@ BuildMultisigAddress _$BuildMultisigAddressFromJson(
         Map<String, dynamic> json) =>
     BuildMultisigAddress(
       keys: (json['keys'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      mrequired: json['mrequired'] as num?,
+      mrequired: json['mrequired'] as int?,
     );
 
 Map<String, dynamic> _$BuildMultisigAddressToJson(

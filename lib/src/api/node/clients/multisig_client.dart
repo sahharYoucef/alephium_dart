@@ -15,13 +15,15 @@ abstract class MultisigClient {
     @Headers() Map<String, dynamic>? params,
   });
 
-  @GET("/multisig/build")
+  @POST("/multisig/build")
+  @Headers({"Content-Type": "application/json"})
   Future<BuildTransactionResult> postMultisigBuild({
     @Body() required BuildMultisig data,
     @Headers() Map<String, dynamic>? params,
   });
 
-  @GET("/multisig/submit")
+  @POST("/multisig/submit")
+  @Headers({"Content-Type": "application/json"})
   Future<TxResult> postMultisigSubmit({
     @Body() required SubmitMultisig data,
     @Headers() Map<String, dynamic>? params,

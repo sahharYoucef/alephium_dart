@@ -21,7 +21,7 @@ class BuildMultisig {
   @JsonKey(name: 'utxosLimit')
   final int? utxosLimit;
   @JsonKey(name: 'fromAddress')
-  final int? fromAddress;
+  final String? fromAddress;
 
   BuildMultisig({
     this.fromPublicKeys,

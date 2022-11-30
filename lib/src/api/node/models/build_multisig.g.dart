@@ -18,7 +18,7 @@ BuildMultisig _$BuildMultisigFromJson(Map<String, dynamic> json) =>
       gasAmount: json['gasAmount'] as int?,
       gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
       utxosLimit: json['utxosLimit'] as int?,
-      fromAddress: json['fromAddress'] as int?,
+      fromAddress: json['fromAddress'] as String?,
     );
 
 Map<String, dynamic> _$BuildMultisigToJson(BuildMultisig instance) {

@@ -20,6 +20,8 @@ class BuildMultisig {
   final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
   final int? utxosLimit;
+  @JsonKey(name: 'fromAddress')
+  final int? fromAddress;
 
   BuildMultisig({
     this.fromPublicKeys,
@@ -27,6 +29,7 @@ class BuildMultisig {
     this.gasAmount,
     this.gasPrice,
     this.utxosLimit,
+    this.fromAddress,
   });
 
   factory BuildMultisig.fromJson(Map<String, dynamic> json) =>

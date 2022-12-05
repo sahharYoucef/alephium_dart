@@ -51,3 +51,4 @@ export 'wallet_status.dart';
 export 'wallet_unlock.dart';
 export 'transaction_destination.dart';
 export 'token.dart';
+export 'decode_unsigned_tx_result.dart';

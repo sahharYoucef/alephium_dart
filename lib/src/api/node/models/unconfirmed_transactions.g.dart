@@ -9,8 +9,8 @@ part of 'unconfirmed_transactions.dart';
 UnconfirmedTransactions _$UnconfirmedTransactionsFromJson(
         Map<String, dynamic> json) =>
     UnconfirmedTransactions(
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
       unconfirmedTransactions: (json['unconfirmedTransactions']
               as List<dynamic>?)
           ?.map((e) => TransactionTemplate.fromJson(e as Map<String, dynamic>))

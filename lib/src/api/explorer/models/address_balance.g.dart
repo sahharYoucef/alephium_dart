@@ -9,8 +9,8 @@ part of 'address_balance.dart';
 ExplorerAddressBalance _$ExplorerAddressBalanceFromJson(
         Map<String, dynamic> json) =>
     ExplorerAddressBalance(
-      balance: json['balance'] as String?,
-      lockedBalance: json['lockedBalance'] as String?,
+      balance: fromJsonStringToBigInt(json['balance'] as String?),
+      lockedBalance: fromJsonStringToBigInt(json['lockedBalance'] as String?),
     );
 
 Map<String, dynamic> _$ExplorerAddressBalanceToJson(
@@ -23,7 +23,7 @@ Map<String, dynamic> _$ExplorerAddressBalanceToJson(
     }
   }
 
-  writeNotNull('balance', instance.balance);
-  writeNotNull('lockedBalance', instance.lockedBalance);
+  writeNotNull('balance', toJsonBigIntToString(instance.balance));
+  writeNotNull('lockedBalance', toJsonBigIntToString(instance.lockedBalance));
   return val;
 }

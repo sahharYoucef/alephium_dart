@@ -15,6 +15,17 @@ FunctionSig _$FunctionSigFromJson(Map<String, dynamic> json) => FunctionSig(
       returnTypes: (json['returnTypes'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      isPublic: json['isPublic'] as String?,
+      paramIsMutable: (json['paramIsMutable'] as List<dynamic>?)
+          ?.map((e) => e as bool)
+          .toList(),
+      paramNames: (json['paramNames'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      paramTypes: (json['paramTypes'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      useAssetsInContract: json['useAssetsInContract'] as bool?,
     );
 
 Map<String, dynamic> _$FunctionSigToJson(FunctionSig instance) {
@@ -28,7 +39,12 @@ Map<String, dynamic> _$FunctionSigToJson(FunctionSig instance) {
 
   writeNotNull('name', instance.name);
   writeNotNull('signature', instance.signature);
+  writeNotNull('useAssetsInContract', instance.useAssetsInContract);
+  writeNotNull('isPublic', instance.isPublic);
   writeNotNull('argTypes', instance.argTypes);
   writeNotNull('returnTypes', instance.returnTypes);
+  writeNotNull('paramTypes', instance.paramTypes);
+  writeNotNull('paramIsMutable', instance.paramIsMutable);
+  writeNotNull('paramNames', instance.paramNames);
   return val;
 }

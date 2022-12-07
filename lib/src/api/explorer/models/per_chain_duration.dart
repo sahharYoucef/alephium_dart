@@ -5,13 +5,13 @@ part 'per_chain_duration.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PerChainDuration {
   @JsonKey(name: 'value')
-  final int? value;
+  final num? value;
   @JsonKey(name: 'chainFrom')
   final int? chainFrom;
   @JsonKey(name: 'chainTo')
   final int? chainTo;
   @JsonKey(name: 'duration')
-  final int? duration;
+  final num? duration;
 
   PerChainDuration({
     this.value,

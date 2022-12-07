@@ -7,11 +7,11 @@ class InterCliquePeerInfo {
   @JsonKey(name: 'cliqueId')
   final String? cliqueId;
   @JsonKey(name: 'brokerId')
-  final num? brokerId;
+  final int? brokerId;
   @JsonKey(name: 'groupNumPerBroker')
-  final num? groupNumPerBroker;
+  final int? groupNumPerBroker;
   @JsonKey(name: 'address')
-  final String? address;
+  final Map<String, dynamic>? address;
   @JsonKey(name: 'isSynced')
   final bool? isSynced;
   @JsonKey(name: 'clientVersion')

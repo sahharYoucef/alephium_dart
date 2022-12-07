@@ -8,12 +8,15 @@ class EventSig {
   final String? name;
   @JsonKey(name: 'signature')
   final String? signature;
+  @JsonKey(name: 'fieldNames')
+  final List<String>? fieldNames;
   @JsonKey(name: 'fieldTypes')
   final List<String>? fieldTypes;
 
   EventSig({
     this.name,
     this.signature,
+    this.fieldNames,
     this.fieldTypes,
   });
 

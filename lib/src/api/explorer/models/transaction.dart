@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'input.dart';
@@ -18,11 +19,20 @@ class ExplorerTransaction {
   @JsonKey(name: 'outputs')
   final List<ExplorerOutput>? outputs;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'type')
   final String? type;
+  @JsonKey(name: 'lastSeen')
+  final int? lastSeen;
+  @JsonKey(name: 'chainFrom')
+  final int? chainFrom;
+  @JsonKey(name: 'chainTo')
+  final int? chainTo;
 
   ExplorerTransaction({
     this.hash,
@@ -33,6 +43,9 @@ class ExplorerTransaction {
     this.gasPrice,
     this.gasAmount,
     this.type,
+    this.lastSeen,
+    this.chainFrom,
+    this.chainTo,
   });
   factory ExplorerTransaction.fromJson(Map<String, dynamic> json) =>
       _$ExplorerTransactionFromJson(json);

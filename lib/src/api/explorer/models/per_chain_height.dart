@@ -5,7 +5,7 @@ part 'per_chain_height.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PerChainHeight {
   @JsonKey(name: 'value')
-  final int? value;
+  final num? value;
   @JsonKey(name: 'chainFrom')
   final int? chainFrom;
   @JsonKey(name: 'chainTo')

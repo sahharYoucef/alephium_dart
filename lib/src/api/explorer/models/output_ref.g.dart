@@ -8,7 +8,7 @@ part of 'output_ref.dart';
 
 ExplorerOutputRef _$ExplorerOutputRefFromJson(Map<String, dynamic> json) =>
     ExplorerOutputRef(
-      hint: json['hint'] as num?,
+      hint: json['hint'] as int?,
       key: json['key'] as String?,
     );
 

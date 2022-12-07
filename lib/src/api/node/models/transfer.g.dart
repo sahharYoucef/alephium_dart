@@ -11,9 +11,9 @@ Transfer _$TransferFromJson(Map<String, dynamic> json) => Transfer(
           ?.map(
               (e) => TransactionDestination.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gas: json['gas'] as num?,
-      gasPrice: json['gasPrice'] as String?,
-      utxosLimit: json['utxosLimit'] as num?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      utxosLimit: json['utxosLimit'] as int?,
     );
 
 Map<String, dynamic> _$TransferToJson(Transfer instance) {
@@ -26,8 +26,8 @@ Map<String, dynamic> _$TransferToJson(Transfer instance) {
   }
 
   writeNotNull('destinations', instance.destinations);
-  writeNotNull('gas', instance.gas);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasAmount', instance.gasAmount);
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('utxosLimit', instance.utxosLimit);
   return val;
 }

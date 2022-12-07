@@ -1,22 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'build_contract_deploy_script_tx_result.dart';
+part of 'build_deploy_contract_tx_result.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-BuildContractDeployScriptTxResult _$BuildContractDeployScriptTxResultFromJson(
+BuildDeployContractTxResult _$BuildDeployContractTxResultFromJson(
         Map<String, dynamic> json) =>
-    BuildContractDeployScriptTxResult(
+    BuildDeployContractTxResult(
       txId: json['txId'] as String?,
       contractAddress: json['contractAddress'] as String?,
       unsignedTx: json['unsignedTx'] as String?,
-      group: json['group'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
     );
 
-Map<String, dynamic> _$BuildContractDeployScriptTxResultToJson(
-    BuildContractDeployScriptTxResult instance) {
+Map<String, dynamic> _$BuildDeployContractTxResultToJson(
+    BuildDeployContractTxResult instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -28,6 +31,9 @@ Map<String, dynamic> _$BuildContractDeployScriptTxResultToJson(
   writeNotNull('txId', instance.txId);
   writeNotNull('contractAddress', instance.contractAddress);
   writeNotNull('unsignedTx', instance.unsignedTx);
-  writeNotNull('group', instance.group);
+  writeNotNull('fromGroup', instance.fromGroup);
+  writeNotNull('toGroup', instance.toGroup);
+  writeNotNull('gasAmount', instance.gasAmount);
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   return val;
 }

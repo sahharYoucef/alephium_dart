@@ -9,12 +9,12 @@ part of 'block_entry_lite.dart';
 BlockEntryLite _$BlockEntryLiteFromJson(Map<String, dynamic> json) =>
     BlockEntryLite(
       hash: json['hash'] as String?,
-      height: json['height'] as num?,
-      timestamp: json['timestamp'] as num?,
-      chainFrom: json['chainFrom'] as num?,
-      chainTo: json['chainTo'] as num?,
-      txNumber: json['txNumber'] as String?,
-      mainChain: json['mainChain'] as String?,
+      height: json['height'] as int?,
+      timestamp: json['timestamp'] as int?,
+      chainFrom: json['chainFrom'] as int?,
+      chainTo: json['chainTo'] as int?,
+      txNumber: json['txNumber'] as num?,
+      mainChain: json['mainChain'] as bool?,
       hashRate: json['hashRate'] as String?,
     );
 

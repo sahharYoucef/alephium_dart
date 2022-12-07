@@ -1,3 +1,5 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
+import 'package:alephium_dart/src/api/node/models/token.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'output_ref.dart';
@@ -14,15 +16,21 @@ class ExplorerInput {
   final String? txHashRef;
   @JsonKey(name: 'address')
   final String? address;
-  @JsonKey(name: 'amount')
-  final String? amount;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
+  @JsonKey(name: 'tokens')
+  final List<Token>? tokens;
 
   ExplorerInput({
     this.outputRef,
     this.unlockScript,
     this.txHashRef,
     this.address,
-    this.amount,
+    this.attoAlphAmount,
+    this.tokens,
   });
 
   factory ExplorerInput.fromJson(Map<String, dynamic> json) =>

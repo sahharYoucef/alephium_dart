@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'token.dart';
@@ -7,11 +8,14 @@ part 'fixed_asset_output.g.dart';
 @JsonSerializable(includeIfNull: false)
 class FixedAssetOutput {
   @JsonKey(name: 'hint')
-  final num? hint;
+  final int? hint;
   @JsonKey(name: 'key')
   final String? key;
-  @JsonKey(name: 'attoAlphAmount')
-  final String? attoAlphAmount;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime')

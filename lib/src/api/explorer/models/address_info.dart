@@ -1,13 +1,20 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'address_info.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class ExplorerAddressInfo {
-  @JsonKey(name: 'balance')
-  final String? balance;
-  @JsonKey(name: 'lockedBalance')
-  final String? lockedBalance;
+  @JsonKey(
+      name: 'balance',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? balance;
+  @JsonKey(
+      name: 'lockedBalance',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? lockedBalance;
   @JsonKey(name: 'txNumber')
   final int? txNumber;
 

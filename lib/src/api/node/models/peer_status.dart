@@ -5,9 +5,9 @@ part 'peer_status.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PeerStatus {
   @JsonKey(name: 'until')
-  final num? until;
+  final int? until;
   @JsonKey(name: 'value')
-  final String? value;
+  final int? value;
   @JsonKey(name: 'type')
   final String? type;
 

@@ -9,9 +9,9 @@ class BuildSweepAddressTransactionsResult {
   @JsonKey(name: 'unsignedTxs')
   final List<SweepAddressTransaction>? unsignedTxs;
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
 
   BuildSweepAddressTransactionsResult({
     this.unsignedTxs,

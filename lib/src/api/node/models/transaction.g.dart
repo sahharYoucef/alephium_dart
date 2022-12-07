@@ -15,7 +15,7 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) => Transaction(
           ?.map((e) => OutputRef.fromJson(e as Map<String, dynamic>))
           .toList(),
       generatedOutputs: (json['generatedOutputs'] as List<dynamic>?)
-          ?.map((e) => Output.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AssetOutput.fromJson(e as Map<String, dynamic>))
           .toList(),
       inputSignatures: (json['inputSignatures'] as List<dynamic>?)
           ?.map((e) => e as String)

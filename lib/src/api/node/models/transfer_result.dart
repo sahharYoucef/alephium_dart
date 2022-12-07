@@ -7,9 +7,9 @@ class TransferResult {
   @JsonKey(name: 'txId')
   final String? txId;
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
 
   TransferResult({
     this.txId,

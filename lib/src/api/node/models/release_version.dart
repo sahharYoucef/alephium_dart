@@ -5,11 +5,11 @@ part 'release_version.g.dart';
 @JsonSerializable(includeIfNull: false)
 class ReleaseVersion {
   @JsonKey(name: 'major')
-  final num? major;
+  final int? major;
   @JsonKey(name: 'minor')
-  final num? minor;
+  final int? minor;
   @JsonKey(name: 'patch')
-  final num? patch;
+  final int? patch;
 
   ReleaseVersion({
     this.major,

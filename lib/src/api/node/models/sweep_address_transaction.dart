@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sweep_address_transaction.g.dart';
@@ -9,9 +10,12 @@ class SweepAddressTransaction {
   @JsonKey(name: 'unsignedTx')
   final String? unsignedTx;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
 
   SweepAddressTransaction({
     this.txId,

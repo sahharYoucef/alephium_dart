@@ -8,7 +8,7 @@ part of 'per_chain_count.dart';
 
 PerChainCount _$PerChainCountFromJson(Map<String, dynamic> json) =>
     PerChainCount(
-      count: json['count'] as int?,
+      count: json['count'] as num?,
       chainFrom: json['chainFrom'] as int?,
       chainTo: json['chainTo'] as int?,
     );

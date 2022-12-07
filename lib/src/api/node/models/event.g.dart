@@ -10,7 +10,7 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       blockHash: json['blockHash'] as String?,
       contractAddress: json['contractAddress'] as String?,
       txId: json['txId'] as String?,
-      eventIndex: json['eventIndex'] as num?,
+      eventIndex: json['eventIndex'] as int?,
       fields: json['fields'] as List<dynamic>?,
       type: json['type'] as String?,
     );

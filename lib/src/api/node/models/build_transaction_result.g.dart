@@ -10,11 +10,11 @@ BuildTransactionResult _$BuildTransactionResultFromJson(
         Map<String, dynamic> json) =>
     BuildTransactionResult(
       unsignedTx: json['unsignedTx'] as String?,
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
       txId: json['txId'] as String?,
-      gasPrice: json['gasPrice'] as String?,
-      gasAmount: _fromJson(json['gasAmount']),
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      gasAmount: json['gasAmount'] as int?,
     );
 
 Map<String, dynamic> _$BuildTransactionResultToJson(
@@ -31,7 +31,7 @@ Map<String, dynamic> _$BuildTransactionResultToJson(
   writeNotNull('fromGroup', instance.fromGroup);
   writeNotNull('toGroup', instance.toGroup);
   writeNotNull('txId', instance.txId);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('gasAmount', instance.gasAmount);
   return val;
 }

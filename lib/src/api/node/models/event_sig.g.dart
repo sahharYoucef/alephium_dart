@@ -9,6 +9,9 @@ part of 'event_sig.dart';
 EventSig _$EventSigFromJson(Map<String, dynamic> json) => EventSig(
       name: json['name'] as String?,
       signature: json['signature'] as String?,
+      fieldNames: (json['fieldNames'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       fieldTypes: (json['fieldTypes'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -25,6 +28,7 @@ Map<String, dynamic> _$EventSigToJson(EventSig instance) {
 
   writeNotNull('name', instance.name);
   writeNotNull('signature', instance.signature);
+  writeNotNull('fieldNames', instance.fieldNames);
   writeNotNull('fieldTypes', instance.fieldTypes);
   return val;
 }

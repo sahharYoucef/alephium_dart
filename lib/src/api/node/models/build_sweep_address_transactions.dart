@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'build_sweep_address_transactions.g.dart';
@@ -9,19 +10,22 @@ class BuildSweepAddressTransactions {
   @JsonKey(name: 'toAddress')
   final String? toAddress;
   @JsonKey(name: 'lockTime')
-  final num? lockTime;
-  @JsonKey(name: 'gas')
-  final num? gas;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  final int? lockTime;
+  @JsonKey(name: 'gasAmount')
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
-  final num? utxosLimit;
+  final int? utxosLimit;
 
   BuildSweepAddressTransactions({
     this.fromPublicKey,
     this.toAddress,
     this.lockTime,
-    this.gas,
+    this.gasAmount,
     this.gasPrice,
     this.utxosLimit,
   });

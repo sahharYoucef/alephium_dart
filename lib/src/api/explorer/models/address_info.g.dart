@@ -8,8 +8,8 @@ part of 'address_info.dart';
 
 ExplorerAddressInfo _$ExplorerAddressInfoFromJson(Map<String, dynamic> json) =>
     ExplorerAddressInfo(
-      balance: json['balance'] as String?,
-      lockedBalance: json['lockedBalance'] as String?,
+      balance: fromJsonStringToBigInt(json['balance'] as String?),
+      lockedBalance: fromJsonStringToBigInt(json['lockedBalance'] as String?),
       txNumber: json['txNumber'] as int?,
     );
 
@@ -22,8 +22,8 @@ Map<String, dynamic> _$ExplorerAddressInfoToJson(ExplorerAddressInfo instance) {
     }
   }
 
-  writeNotNull('balance', instance.balance);
-  writeNotNull('lockedBalance', instance.lockedBalance);
+  writeNotNull('balance', toJsonBigIntToString(instance.balance));
+  writeNotNull('lockedBalance', toJsonBigIntToString(instance.lockedBalance));
   writeNotNull('txNumber', instance.txNumber);
   return val;
 }

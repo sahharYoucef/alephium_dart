@@ -5,7 +5,7 @@ part 'group.g.dart';
 @JsonSerializable(includeIfNull: false)
 class Group {
   @JsonKey(name: 'group')
-  final num? group;
+  final int? group;
 
   Group({
     this.group,

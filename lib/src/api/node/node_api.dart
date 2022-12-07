@@ -6,3 +6,4 @@ export './clients/block_flow_client.dart';
 export './clients/infos_client.dart';
 export './clients/transactions_client.dart';
 export './clients/wallets_client.dart';
+export './clients/multisig_client.dart';

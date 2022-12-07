@@ -10,11 +10,12 @@ TransactionDestination _$TransactionDestinationFromJson(
         Map<String, dynamic> json) =>
     TransactionDestination(
       address: json['address'] as String?,
-      attoAlphAmount: json['attoAlphAmount'] as String?,
-      tokens: json['tokens'] == null
-          ? null
-          : Token.fromJson(json['tokens'] as Map<String, dynamic>),
+      attoAlphAmount: fromJsonStringToBigInt(json['attoAlphAmount'] as String?),
+      tokens: (json['tokens'] as List<dynamic>?)
+          ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
+          .toList(),
       lockTime: json['lockTime'] as int?,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$TransactionDestinationToJson(
@@ -28,8 +29,9 @@ Map<String, dynamic> _$TransactionDestinationToJson(
   }
 
   writeNotNull('address', instance.address);
-  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
+  writeNotNull('attoAlphAmount', toJsonBigIntToString(instance.attoAlphAmount));
   writeNotNull('tokens', instance.tokens);
   writeNotNull('lockTime', instance.lockTime);
+  writeNotNull('message', instance.message);
   return val;
 }

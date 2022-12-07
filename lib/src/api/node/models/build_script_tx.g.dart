@@ -9,14 +9,14 @@ part of 'build_script_tx.dart';
 BuildScriptTx _$BuildScriptTxFromJson(Map<String, dynamic> json) =>
     BuildScriptTx(
       fromPublicKey: json['fromPublicKey'] as String?,
-      bytecode: json['bytecode'] as String?,
+      byteCode: json['bytecode'] as String?,
       tokens: (json['tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
           .toList(),
-      gas: json['gas'] as num?,
-      attoAlphAmount: json['attoAlphAmount'] as String?,
-      gasPrice: json['gasPrice'] as String?,
-      utxosLimit: json['utxosLimit'] as num?,
+      gasAmount: json['gasAmount'] as int?,
+      attoAlphAmount: fromJsonStringToBigInt(json['attoAlphAmount'] as String?),
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      targetBlockHash: json['targetBlockHash'] as num?,
     );
 
 Map<String, dynamic> _$BuildScriptTxToJson(BuildScriptTx instance) {
@@ -29,11 +29,11 @@ Map<String, dynamic> _$BuildScriptTxToJson(BuildScriptTx instance) {
   }
 
   writeNotNull('fromPublicKey', instance.fromPublicKey);
-  writeNotNull('bytecode', instance.bytecode);
+  writeNotNull('bytecode', instance.byteCode);
   writeNotNull('tokens', instance.tokens);
-  writeNotNull('gas', instance.gas);
-  writeNotNull('attoAlphAmount', instance.attoAlphAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
-  writeNotNull('utxosLimit', instance.utxosLimit);
+  writeNotNull('gasAmount', instance.gasAmount);
+  writeNotNull('attoAlphAmount', toJsonBigIntToString(instance.attoAlphAmount));
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
+  writeNotNull('targetBlockHash', instance.targetBlockHash);
   return val;
 }

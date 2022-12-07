@@ -7,13 +7,13 @@ class BlockHeaderEntry {
   @JsonKey(name: 'hash')
   final String? hash;
   @JsonKey(name: 'height')
-  final num? height;
+  final int? height;
   @JsonKey(name: 'timestamp')
-  final num? timestamp;
+  final int? timestamp;
   @JsonKey(name: 'chainFrom')
-  final num? chainFrom;
+  final int? chainFrom;
   @JsonKey(name: 'chainTo')
-  final num? chainTo;
+  final int? chainTo;
   @JsonKey(name: 'deps')
   final List<String>? deps;
 

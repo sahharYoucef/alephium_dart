@@ -11,8 +11,8 @@ SweepAddressTransaction _$SweepAddressTransactionFromJson(
     SweepAddressTransaction(
       txId: json['txId'] as String?,
       unsignedTx: json['unsignedTx'] as String?,
-      gasAmount: json['gasAmount'] as num?,
-      gasPrice: json['gasPrice'] as String?,
+      gasAmount: json['gasAmount'] as int?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
     );
 
 Map<String, dynamic> _$SweepAddressTransactionToJson(
@@ -28,6 +28,6 @@ Map<String, dynamic> _$SweepAddressTransactionToJson(
   writeNotNull('txId', instance.txId);
   writeNotNull('unsignedTx', instance.unsignedTx);
   writeNotNull('gasAmount', instance.gasAmount);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   return val;
 }

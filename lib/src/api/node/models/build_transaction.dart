@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'transaction_destination.dart';
@@ -13,20 +14,24 @@ class BuildTransaction {
   final List<TransactionDestination>? destinations;
   @JsonKey(name: 'utxos', includeIfNull: false)
   final List<OutputRef>? utxos;
-  @JsonKey(name: 'gas', includeIfNull: false)
-  final num? gas;
-  @JsonKey(name: 'gasPrice', includeIfNull: false)
-  final String? gasPrice;
-  @JsonKey(name: 'utxosLimit', includeIfNull: false)
-  final num? utxosLimit;
+  @JsonKey(name: 'gasAmount', includeIfNull: false)
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      includeIfNull: false,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
+  @JsonKey(name: 'targetBlockHash', includeIfNull: false)
+  final String? targetBlockHash;
 
   BuildTransaction({
     this.fromPublicKey,
     this.destinations,
     this.utxos,
-    this.gas,
+    this.gasAmount,
     this.gasPrice,
-    this.utxosLimit,
+    this.targetBlockHash,
   });
 
   factory BuildTransaction.fromJson(Map<String, dynamic> json) =>

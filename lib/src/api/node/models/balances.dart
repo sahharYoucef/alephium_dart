@@ -1,17 +1,20 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
+import 'package:alephium_dart/src/api/node/models/address_balance.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'balance.dart';
-
 part 'balances.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class Balances {
-  @JsonKey(name: 'totalBalance')
-  final String? totalBalance;
+  @JsonKey(
+    name: 'totalBalance',
+    fromJson: fromJsonStringToBigInt,
+    toJson: toJsonBigIntToString,
+  )
+  final BigInt? totalBalance;
   @JsonKey(name: 'totalBalanceHint')
   final String? totalBalanceHint;
   @JsonKey(name: 'balances')
-  final List<Balance>? balances;
+  final List<AddressBalance>? balances;
 
   Balances({
     this.totalBalance,

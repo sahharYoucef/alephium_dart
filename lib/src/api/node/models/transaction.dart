@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'output.dart';
+import 'asset_output.dart';
 import 'output_ref.dart';
 import 'unsigned_tx.dart';
 
@@ -15,7 +15,7 @@ class Transaction {
   @JsonKey(name: 'contractInputs')
   final List<OutputRef>? contractInputs;
   @JsonKey(name: 'generatedOutputs')
-  final List<Output>? generatedOutputs;
+  final List<AssetOutput>? generatedOutputs;
   @JsonKey(name: 'inputSignatures')
   final List<String>? inputSignatures;
   @JsonKey(name: 'scriptSignatures')

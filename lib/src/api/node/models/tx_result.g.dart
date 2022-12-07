@@ -8,8 +8,8 @@ part of 'tx_result.dart';
 
 TxResult _$TxResultFromJson(Map<String, dynamic> json) => TxResult(
       txId: json['txId'] as String?,
-      fromGroup: json['fromGroup'] as num?,
-      toGroup: json['toGroup'] as num?,
+      fromGroup: json['fromGroup'] as int?,
+      toGroup: json['toGroup'] as int?,
     );
 
 Map<String, dynamic> _$TxResultToJson(TxResult instance) {

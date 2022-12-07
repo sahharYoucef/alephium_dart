@@ -9,7 +9,7 @@ class BrokerInfo {
   @JsonKey(name: 'brokerNum')
   final num? brokerNum;
   @JsonKey(name: 'address')
-  final String? address;
+  final Map<String, dynamic>? address;
   @JsonKey(name: 'cliqueId')
   final String? cliqueId;
 

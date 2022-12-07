@@ -8,12 +8,12 @@ part of 'block_entry.dart';
 
 BlockEntry _$BlockEntryFromJson(Map<String, dynamic> json) => BlockEntry(
       hash: json['hash'] as String?,
-      height: json['height'] as num?,
-      timestamp: json['timestamp'] as num?,
+      height: json['height'] as int?,
+      timestamp: json['timestamp'] as int?,
       nonce: json['nonce'] as num?,
       version: json['version'] as num?,
-      chainFrom: json['chainFrom'] as num?,
-      chainTo: json['chainTo'] as num?,
+      chainFrom: json['chainFrom'] as int?,
+      chainTo: json['chainTo'] as int?,
       deps: (json['deps'] as List<dynamic>?)?.map((e) => e as String).toList(),
       transactions: (json['transactions'] as List<dynamic>?)
           ?.map((e) => Transaction.fromJson(e as Map<String, dynamic>))

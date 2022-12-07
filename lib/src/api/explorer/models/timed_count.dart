@@ -7,7 +7,7 @@ class TimedCount {
   @JsonKey(name: 'timestamp')
   final int? timestamp;
   @JsonKey(name: 'totalCountAllChains')
-  final int? totalCountAllChains;
+  final num? totalCountAllChains;
 
   TimedCount({
     this.timestamp,

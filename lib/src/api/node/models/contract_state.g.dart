@@ -10,6 +10,7 @@ ContractState _$ContractStateFromJson(Map<String, dynamic> json) =>
     ContractState(
       address: json['address'] as String?,
       bytecode: json['bytecode'] as String?,
+      initialStateHash: json['initialStateHash'] as String?,
       codeHash: json['codeHash'] as String?,
       fields: json['fields'] as List<dynamic>?,
       asset: json['asset'] == null
@@ -29,6 +30,7 @@ Map<String, dynamic> _$ContractStateToJson(ContractState instance) {
   writeNotNull('address', instance.address);
   writeNotNull('bytecode', instance.bytecode);
   writeNotNull('codeHash', instance.codeHash);
+  writeNotNull('initialStateHash', instance.initialStateHash);
   writeNotNull('fields', instance.fields);
   writeNotNull('asset', instance.asset);
   return val;

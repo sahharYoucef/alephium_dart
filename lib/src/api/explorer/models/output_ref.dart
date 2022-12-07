@@ -5,7 +5,7 @@ part 'output_ref.g.dart';
 @JsonSerializable(includeIfNull: false)
 class ExplorerOutputRef {
   @JsonKey(name: 'hint')
-  final num? hint;
+  final int? hint;
   @JsonKey(name: 'key')
   final String? key;
 

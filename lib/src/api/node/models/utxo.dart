@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'output_ref.dart';
@@ -9,8 +10,12 @@ part 'utxo.g.dart';
 class Utxo {
   @JsonKey(name: 'ref')
   final OutputRef? ref;
-  @JsonKey(name: 'amount')
-  final String? amount;
+  @JsonKey(
+    name: 'amount',
+    fromJson: fromJsonStringToBigInt,
+    toJson: toJsonBigIntToString,
+  )
+  final BigInt? amount;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
   @JsonKey(name: 'lockTime')

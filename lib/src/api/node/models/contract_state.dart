@@ -12,6 +12,8 @@ class ContractState {
   final String? bytecode;
   @JsonKey(name: 'codeHash')
   final String? codeHash;
+  @JsonKey(name: 'initialStateHash')
+  final String? initialStateHash;
   @JsonKey(name: 'fields')
   final List<dynamic>? fields;
   @JsonKey(name: 'asset')
@@ -20,6 +22,7 @@ class ContractState {
   ContractState({
     this.address,
     this.bytecode,
+    this.initialStateHash,
     this.codeHash,
     this.fields,
     this.asset,

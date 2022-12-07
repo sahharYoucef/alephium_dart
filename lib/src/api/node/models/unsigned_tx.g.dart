@@ -8,11 +8,11 @@ part of 'unsigned_tx.dart';
 
 UnsignedTx _$UnsignedTxFromJson(Map<String, dynamic> json) => UnsignedTx(
       txId: json['txId'] as String?,
-      version: json['version'] as int?,
-      networkId: json['networkId'] as int?,
+      version: json['version'] as num?,
+      networkId: json['networkId'] as num?,
       scriptOpt: json['scriptOpt'] as String?,
-      gasPrice: json['gasPrice'] as String?,
-      gasAmount: json['gasAmount'] as num?,
+      gasPrice: fromJsonStringToBigInt(json['gasPrice'] as String?),
+      gasAmount: json['gasAmount'] as int?,
       inputs: (json['inputs'] as List<dynamic>?)
           ?.map((e) => AssetInput.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -34,7 +34,7 @@ Map<String, dynamic> _$UnsignedTxToJson(UnsignedTx instance) {
   writeNotNull('version', instance.version);
   writeNotNull('networkId', instance.networkId);
   writeNotNull('scriptOpt', instance.scriptOpt);
-  writeNotNull('gasPrice', instance.gasPrice);
+  writeNotNull('gasPrice', toJsonBigIntToString(instance.gasPrice));
   writeNotNull('gasAmount', instance.gasAmount);
   writeNotNull('inputs', instance.inputs);
   writeNotNull('fixedOutputs', instance.fixedOutputs);

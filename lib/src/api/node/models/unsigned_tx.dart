@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'asset_input.dart';
@@ -10,15 +11,18 @@ class UnsignedTx {
   @JsonKey(name: 'txId')
   final String? txId;
   @JsonKey(name: 'version')
-  final int? version;
+  final num? version;
   @JsonKey(name: 'networkId')
-  final int? networkId;
+  final num? networkId;
   @JsonKey(name: 'scriptOpt')
   final String? scriptOpt;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'gasAmount')
-  final num? gasAmount;
+  final int? gasAmount;
   @JsonKey(name: 'inputs')
   final List<AssetInput>? inputs;
   @JsonKey(name: 'fixedOutputs')

@@ -10,14 +10,27 @@ abstract class BlockFlowClient {
   factory BlockFlowClient(Dio dio, {String baseUrl}) = _BlockFlowClient;
 
   @GET("/blockflow")
-  Future<FetchResponse> getBlockFlow(
-    @Query("fromTs") num fromTs,
-    @Query("toTs") num toTs, {
+  Future<FetchResponse> getBlockFlow({
+    @Query("fromTs") required num fromTs,
+    @Query("toTs") num? toTs,
+    @Headers() Map<String, dynamic>? params,
+  });
+
+  @GET("/blockflow/blocks-with-events")
+  Future<FetchResponse> getBlocksWithEvent({
+    @Query("fromTs") required num fromTs,
+    @Query("toTs") num? toTs,
     @Headers() Map<String, dynamic>? params,
   });
 
   @GET("/blockflow/blocks/{blockHash}")
   Future<BlockEntry> getBlockHash(
+    @Path("blockHash") String blockHash, {
+    @Headers() Map<String, dynamic>? params,
+  });
+
+  @GET("/blockflow/blocks-with-events/{blockHash}")
+  Future<BlockEntry> getgetBlocksWithEventHash(
     @Path("blockHash") String blockHash, {
     @Headers() Map<String, dynamic>? params,
   });
@@ -29,17 +42,17 @@ abstract class BlockFlowClient {
   });
 
   @GET("/blockflow/hashes")
-  Future<HashesAtHeight> getBlockFlowHashes(
-    @Query("fromGroup") num fromGroup,
-    @Query("toGroup") num toGroup,
-    @Query("height") num height, {
+  Future<HashesAtHeight> getBlockFlowHashes({
+    @Query("fromGroup") required num fromGroup,
+    @Query("toGroup") required num toGroup,
+    @Query("height") required num height,
     @Headers() Map<String, dynamic>? params,
   });
 
   @GET("/blockflow/chain-info")
-  Future<ChainInfo> getBlockFlowChainInfo(
-    @Query("fromGroup") num fromGroup,
-    @Query("toGroup") num toGroup, {
+  Future<ChainInfo> getBlockFlowChainInfo({
+    @Query("fromGroup") required num fromGroup,
+    @Query("toGroup") required num toGroup,
     @Headers() Map<String, dynamic>? params,
   });
 

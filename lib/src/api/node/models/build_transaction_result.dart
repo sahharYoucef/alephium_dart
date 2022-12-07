@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'build_transaction_result.g.dart';
@@ -7,18 +8,18 @@ class BuildTransactionResult {
   @JsonKey(name: 'unsignedTx')
   final String? unsignedTx;
   @JsonKey(name: 'fromGroup')
-  final num? fromGroup;
+  final int? fromGroup;
   @JsonKey(name: 'toGroup')
-  final num? toGroup;
+  final int? toGroup;
   @JsonKey(name: 'txId')
   final String? txId;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
   @JsonKey(
-    name: 'gasAmount',
-    fromJson: _fromJson,
-  )
-  final String? gasAmount;
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
+  @JsonKey(name: 'gasAmount')
+  final int? gasAmount;
 
   BuildTransactionResult({
     this.unsignedTx,
@@ -33,8 +34,4 @@ class BuildTransactionResult {
       _$BuildTransactionResultFromJson(json);
 
   Map<String, dynamic> toJson() => _$BuildTransactionResultToJson(this);
-}
-
-_fromJson(value) {
-  return value.toString();
 }

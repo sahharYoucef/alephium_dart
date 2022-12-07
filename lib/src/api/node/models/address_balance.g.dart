@@ -9,9 +9,10 @@ part of 'address_balance.dart';
 AddressBalance _$AddressBalanceFromJson(Map<String, dynamic> json) =>
     AddressBalance(
       address: json['address'] as bool?,
-      balance: json['balance'] as String?,
+      balance: fromJsonStringToBigInt(json['balance'] as String?),
       balanceHint: json['balanceHint'] as String?,
-      lockedBalance: json['lockedBalance'] as String?,
+      lockedBalanceHint: json['lockedBalanceHint'] as String?,
+      lockedBalance: fromJsonStringToBigInt(json['lockedBalance'] as String?),
       warning: json['warning'] as String?,
     );
 
@@ -25,9 +26,10 @@ Map<String, dynamic> _$AddressBalanceToJson(AddressBalance instance) {
   }
 
   writeNotNull('address', instance.address);
-  writeNotNull('balance', instance.balance);
+  writeNotNull('balance', toJsonBigIntToString(instance.balance));
   writeNotNull('balanceHint', instance.balanceHint);
-  writeNotNull('lockedBalance', instance.lockedBalance);
+  writeNotNull('lockedBalance', toJsonBigIntToString(instance.lockedBalance));
+  writeNotNull('lockedBalanceHint', instance.lockedBalanceHint);
   writeNotNull('warning', instance.warning);
   return val;
 }

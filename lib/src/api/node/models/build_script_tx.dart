@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'token.dart';
@@ -9,26 +10,32 @@ class BuildScriptTx {
   @JsonKey(name: 'fromPublicKey')
   final String? fromPublicKey;
   @JsonKey(name: 'bytecode')
-  final String? bytecode;
+  final String? byteCode;
   @JsonKey(name: 'tokens')
   final List<Token>? tokens;
-  @JsonKey(name: 'gas')
-  final num? gas;
-  @JsonKey(name: 'attoAlphAmount')
-  final String? attoAlphAmount;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
-  @JsonKey(name: 'utxosLimit')
-  final num? utxosLimit;
+  @JsonKey(name: 'gasAmount')
+  final int? gasAmount;
+  @JsonKey(
+      name: 'attoAlphAmount',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? attoAlphAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
+  @JsonKey(name: 'targetBlockHash')
+  final num? targetBlockHash;
 
   BuildScriptTx({
     this.fromPublicKey,
-    this.bytecode,
+    this.byteCode,
     this.tokens,
-    this.gas,
+    this.gasAmount,
     this.attoAlphAmount,
     this.gasPrice,
-    this.utxosLimit,
+    this.targetBlockHash,
   });
 
   factory BuildScriptTx.fromJson(Map<String, dynamic> json) =>

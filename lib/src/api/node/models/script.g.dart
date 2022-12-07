@@ -8,6 +8,10 @@ part of 'script.dart';
 
 Script _$ScriptFromJson(Map<String, dynamic> json) => Script(
       code: json['code'] as String?,
+      compilerOptions: json['compilerOptions'] == null
+          ? null
+          : CompilerOptions.fromJson(
+              json['compilerOptions'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ScriptToJson(Script instance) {
@@ -20,5 +24,6 @@ Map<String, dynamic> _$ScriptToJson(Script instance) {
   }
 
   writeNotNull('code', instance.code);
+  writeNotNull('compilerOptions', instance.compilerOptions);
   return val;
 }

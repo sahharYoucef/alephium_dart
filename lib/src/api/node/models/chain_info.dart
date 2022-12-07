@@ -5,7 +5,7 @@ part 'chain_info.g.dart';
 @JsonSerializable(includeIfNull: false)
 class ChainInfo {
   @JsonKey(name: 'currentHeight')
-  final num? currentHeight;
+  final int? currentHeight;
 
   ChainInfo({
     this.currentHeight,

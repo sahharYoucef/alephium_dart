@@ -8,7 +8,7 @@ part of 'token.dart';
 
 Token _$TokenFromJson(Map<String, dynamic> json) => Token(
       id: json['id'] as String?,
-      amount: json['amount'] as String?,
+      amount: fromJsonStringToBigInt(json['amount'] as String?),
     );
 
 Map<String, dynamic> _$TokenToJson(Token instance) {
@@ -21,6 +21,6 @@ Map<String, dynamic> _$TokenToJson(Token instance) {
   }
 
   writeNotNull('id', instance.id);
-  writeNotNull('amount', instance.amount);
+  writeNotNull('amount', toJsonBigIntToString(instance.amount));
   return val;
 }

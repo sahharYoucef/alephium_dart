@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/helpers/api_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sweep.g.dart';
@@ -8,17 +9,20 @@ class Sweep {
   final String? toAddress;
   @JsonKey(name: 'lockTime')
   final int? lockTime;
-  @JsonKey(name: 'gas')
-  final int? gas;
-  @JsonKey(name: 'gasPrice')
-  final String? gasPrice;
+  @JsonKey(name: 'gasAmount')
+  final int? gasAmount;
+  @JsonKey(
+      name: 'gasPrice',
+      fromJson: fromJsonStringToBigInt,
+      toJson: toJsonBigIntToString)
+  final BigInt? gasPrice;
   @JsonKey(name: 'utxosLimit')
   final int? utxosLimit;
 
   Sweep({
     this.toAddress,
     this.lockTime,
-    this.gas,
+    this.gasAmount,
     this.gasPrice,
     this.utxosLimit,
   });

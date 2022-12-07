@@ -16,3 +16,4 @@ export 'per_chain_height.dart';
 export 'per_chain_timed_count.dart';
 export 'timed_count.dart';
 export 'token_supply.dart';
+export 'log_back_value.dart';

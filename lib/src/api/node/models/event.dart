@@ -11,7 +11,7 @@ class Event {
   @JsonKey(name: 'txId')
   final String? txId;
   @JsonKey(name: 'eventIndex')
-  final num? eventIndex;
+  final int? eventIndex;
   @JsonKey(name: 'fields')
   final List<dynamic>? fields;
   @JsonKey(name: 'type')

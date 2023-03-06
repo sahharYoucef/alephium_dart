@@ -9,7 +9,7 @@ part 'transactions_client.g.dart';
 @RestApi(baseUrl: "")
 abstract class TransactionClient {
   factory TransactionClient(Dio dio, {String baseUrl}) = _TransactionClient;
-  @GET("/transactions/unconfirmed")
+  @GET("/mempool/transactions")
   Future<List<UnconfirmedTransactions>> getUnconfirmedTransactions({
     @Headers() Map<String, dynamic>? params,
   });

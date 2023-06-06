@@ -16,6 +16,9 @@ import 'package:alephium_dart/src/api/node/models/test_contract_result.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
 
+import '../models/multiple_call_contract.dart';
+import '../models/multiple_call_contract_result.dart';
+
 part 'contracts_client.g.dart';
 
 @RestApi(baseUrl: "")
@@ -70,10 +73,17 @@ abstract class ContractClient {
     @Headers() Map<String, dynamic>? params,
   });
 
-  @POST("/contracts/test-contract")
+  @POST("/contracts/call-contract")
   @Headers({"Content-Type": "application/json"})
   Future<CallContractResult> postContractsCallContract(
     @Body() CallContract data, {
+    @Headers() Map<String, dynamic>? params,
+  });
+
+  @POST("/contracts/multicall-contract")
+  @Headers({"Content-Type": "application/json"})
+  Future<MultipleCallContractResult> postContractsMultiCallContract(
+    @Body() MultipleCallContract data, {
     @Headers() Map<String, dynamic>? params,
   });
 }

@@ -7,3 +7,4 @@ export './clients/infos_client.dart';
 export './clients/transactions_client.dart';
 export './clients/wallets_client.dart';
 export './clients/multisig_client.dart';
+export './clients/contracts_client.dart';

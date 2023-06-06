@@ -34,7 +34,7 @@ class _TransactionClient implements TransactionClient {
     )
             .compose(
               _dio.options,
-              '/transactions/unconfirmed',
+              '/mempool/transactions',
               queryParameters: queryParameters,
               data: _data,
             )

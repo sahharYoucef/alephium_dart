@@ -247,12 +247,42 @@ class _ContractClient implements ContractClient {
     )
             .compose(
               _dio.options,
-              '/contracts/test-contract',
+              '/contracts/call-contract',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = CallContractResult.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<MultipleCallContractResult> postContractsMultiCallContract(
+    data, {
+    params,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(data.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<MultipleCallContractResult>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
+    )
+            .compose(
+              _dio.options,
+              '/contracts/multicall-contract',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = MultipleCallContractResult.fromJson(_result.data!);
     return value;
   }
 

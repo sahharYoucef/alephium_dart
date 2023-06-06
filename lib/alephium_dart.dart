@@ -9,5 +9,6 @@ export './src/encryption/utils/address.dart';
 export './src/encryption/utils/constants.dart';
 export './src/encryption/utils/numbers.dart';
 export './src/encryption/utils/contracts.dart';
+export './src/encryption/utils/tokens.dart';
 
 // TODO: Export any libraries intended for clients of this package.

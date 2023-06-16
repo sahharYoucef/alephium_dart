@@ -27,6 +27,9 @@ CallContractResult _$CallContractResultFromJson(Map<String, dynamic> json) =>
       events: (json['events'] as List<dynamic>?)
           ?.map((e) => Event.fromJson(e as Map<String, dynamic>))
           .toList(),
+      returns: (json['returns'] as List<dynamic>?)
+          ?.map((e) => Val.fromJson(e))
+          .toList(),
     );
 
 Map<String, dynamic> _$CallContractResultToJson(CallContractResult instance) {
@@ -46,5 +49,6 @@ Map<String, dynamic> _$CallContractResultToJson(CallContractResult instance) {
   writeNotNull('txInputs', instance.txInputs);
   writeNotNull('txOutputs', instance.txOutputs);
   writeNotNull('events', instance.events);
+  writeNotNull('returns', instance.returns);
   return val;
 }

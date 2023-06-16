@@ -9,7 +9,7 @@ part of 'multiple_call_contract_result.dart';
 MultipleCallContractResult _$MultipleCallContractResultFromJson(
         Map<String, dynamic> json) =>
     MultipleCallContractResult(
-      results: (json['calls'] as List<dynamic>?)
+      results: (json['results'] as List<dynamic>?)
               ?.map(
                   (e) => CallContractResult.fromJson(e as Map<String, dynamic>))
               .toList() ??

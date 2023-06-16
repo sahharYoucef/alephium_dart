@@ -11,4 +11,6 @@ export './src/encryption/utils/numbers.dart';
 export './src/encryption/utils/contracts.dart';
 export './src/encryption/utils/tokens.dart';
 
+export 'package:convert/convert.dart';
+
 // TODO: Export any libraries intended for clients of this package.

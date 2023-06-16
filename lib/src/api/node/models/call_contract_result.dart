@@ -1,4 +1,5 @@
 import 'package:alephium_dart/src/api/node/models/debug_message.dart';
+import 'package:alephium_dart/src/api/node/models/val.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'contract_state.dart';
@@ -25,6 +26,8 @@ class CallContractResult {
   final List<AssetOutput>? txOutputs;
   @JsonKey(name: 'events')
   final List<Event>? events;
+  @JsonKey(name: 'returns')
+  final List<Val>? returns;
 
   CallContractResult({
     this.gasUsed,
@@ -35,6 +38,7 @@ class CallContractResult {
     this.txOutputs,
     this.txInputs,
     this.events,
+    this.returns,
   });
 
   factory CallContractResult.fromJson(Map<String, dynamic> json) =>

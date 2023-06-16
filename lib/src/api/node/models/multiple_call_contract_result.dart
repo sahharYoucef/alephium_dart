@@ -5,7 +5,7 @@ part 'multiple_call_contract_result.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class MultipleCallContractResult {
-  @JsonKey(name: 'calls', defaultValue: [])
+  @JsonKey(name: 'results', defaultValue: [])
   final List<CallContractResult> results;
 
   MultipleCallContractResult({

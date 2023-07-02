@@ -45,4 +45,9 @@ class CallContractResult {
       _$CallContractResultFromJson(json);
 
   Map<String, dynamic> toJson() => _$CallContractResultToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
 }

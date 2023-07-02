@@ -55,3 +55,4 @@ export 'decode_unsigned_tx_result.dart';
 export 'multiple_call_contract.dart';
 export 'multiple_call_contract_result.dart';
 export 'call_contract.dart';
+export 'contract_state.dart';

@@ -5,6 +5,7 @@ import 'package:convert/convert.dart';
 import 'package:pointycastle/export.dart';
 
 import '../../../alephium_dart.dart';
+import '../../api/node/models/val.dart';
 
 enum AddressType {
   P2PKH(0),
@@ -220,12 +221,13 @@ Uint8List id(String text) {
 String getColor(String? name) {
   try {
     if (name == null) return argentColorsArray.first;
-    final value = id(name);
-    final hash = utf8.decode(value);
-    final index = int.parse(hash.substring(0, hash.length - 2), radix: 16) %
-        argentColorsArray.length;
+    var value = id(name);
+    value = value.sublist(value.length - 3);
+    final hash = hex.encode(value);
+    final index = int.parse(hash, radix: 16) % argentColorsArray.length;
     return argentColorsArray[index];
   } catch (e) {
+    print(e);
     return argentColorsArray.first;
   }
 }
@@ -240,3 +242,33 @@ const argentColorsArray = [
   "FF675C",
   "FF5C72",
 ];
+
+enum TokenType {
+  fungible,
+  nonFungible,
+  none,
+}
+
+TokenType guessStdTokenType({required String tokenId, List<Val>? immFields}) {
+  final interfaceId =
+      guessStdInterfaceId(tokenId: tokenId, immFields: immFields);
+  switch (interfaceId) {
+    case '0001':
+      return TokenType.fungible;
+    case '0003':
+      return TokenType.nonFungible;
+    default:
+      return TokenType.none;
+  }
+}
+
+String? guessStdInterfaceId({required String tokenId, List<Val>? immFields}) {
+  if (immFields == null) return null;
+  final lastImmField = immFields.last.value;
+  final interfaceIdPrefix = '414c5048'; // the hex of 'ALPH'
+  if (lastImmField is String && lastImmField.startsWith(interfaceIdPrefix)) {
+    return lastImmField.substring(8);
+  } else {
+    return null;
+  }
+}

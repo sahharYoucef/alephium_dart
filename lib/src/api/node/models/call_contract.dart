@@ -41,4 +41,9 @@ class CallContract {
   factory CallContract.fromJson(Map<String, dynamic> json) =>
       _$CallContractFromJson(json);
   Map<String, dynamic> toJson() => _$CallContractToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
 }

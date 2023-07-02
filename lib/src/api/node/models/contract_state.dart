@@ -1,3 +1,4 @@
+import 'package:alephium_dart/src/api/node/models/val.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'asset_state.dart';
@@ -15,7 +16,11 @@ class ContractState {
   @JsonKey(name: 'initialStateHash')
   final String? initialStateHash;
   @JsonKey(name: 'fields')
-  final List<dynamic>? fields;
+  final List<Val>? fields;
+  @JsonKey(name: 'immFields')
+  final List<Val>? immFields;
+  @JsonKey(name: 'mutFields')
+  final List<Val>? mutFields;
   @JsonKey(name: 'asset')
   final AssetState? asset;
 
@@ -25,6 +30,8 @@ class ContractState {
     this.initialStateHash,
     this.codeHash,
     this.fields,
+    this.immFields,
+    this.mutFields,
     this.asset,
   });
 

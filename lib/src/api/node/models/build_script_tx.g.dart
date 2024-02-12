@@ -9,6 +9,7 @@ part of 'build_script_tx.dart';
 BuildScriptTx _$BuildScriptTxFromJson(Map<String, dynamic> json) =>
     BuildScriptTx(
       fromPublicKey: json['fromPublicKey'] as String?,
+      fromPublicKeyType: json['fromPublicKeyType'] as String?,
       byteCode: json['bytecode'] as String?,
       tokens: (json['tokens'] as List<dynamic>?)
           ?.map((e) => Token.fromJson(e as Map<String, dynamic>))
@@ -29,6 +30,7 @@ Map<String, dynamic> _$BuildScriptTxToJson(BuildScriptTx instance) {
   }
 
   writeNotNull('fromPublicKey', instance.fromPublicKey);
+  writeNotNull("fromPublicKeyType", instance.fromPublicKeyType);
   writeNotNull('bytecode', instance.byteCode);
   writeNotNull('tokens', instance.tokens);
   writeNotNull('gasAmount', instance.gasAmount);

@@ -10,7 +10,7 @@ class FunctionSig {
   @JsonKey(name: 'useAssetsInContract')
   final bool? useAssetsInContract;
   @JsonKey(name: 'isPublic')
-  final String? isPublic;
+  final bool? isPublic;
   @JsonKey(name: 'argTypes')
   final List<String>? argTypes;
   @JsonKey(name: 'returnTypes')

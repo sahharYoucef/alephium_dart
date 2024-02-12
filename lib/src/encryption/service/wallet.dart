@@ -105,7 +105,7 @@ class WalletService {
 
   static AlephiumAddress _deriveAddressAndKeys(Uint8List seed,
       {int index = 0,
-      int group = 0,
+      int? group,
       String mnemonic = "",
       String passphrase = ""}) {
     var masterKey = bip32.BIP32.fromSeed(
@@ -129,9 +129,11 @@ class WalletService {
       ...type,
       ...blake2b.hash,
     ]);
+
     var address = base58.encode(bytes);
+    final getGroup = AddressUtils.addressToGroup(address, totalNumberOfGroups);
     return AlephiumAddress(
-      group: group,
+      group: getGroup,
       address: address,
       passphrase: passphrase,
       privateKey: hex.encode(privateKey!),

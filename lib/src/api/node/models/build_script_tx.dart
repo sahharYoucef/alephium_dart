@@ -9,6 +9,8 @@ part 'build_script_tx.g.dart';
 class BuildScriptTx {
   @JsonKey(name: 'fromPublicKey')
   final String? fromPublicKey;
+  @JsonKey(name: 'fromPublicKeyType')
+  final String? fromPublicKeyType;
   @JsonKey(name: 'bytecode')
   final String? byteCode;
   @JsonKey(name: 'tokens')
@@ -30,6 +32,7 @@ class BuildScriptTx {
 
   BuildScriptTx({
     this.fromPublicKey,
+    this.fromPublicKeyType,
     this.byteCode,
     this.tokens,
     this.gasAmount,

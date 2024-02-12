@@ -15,7 +15,7 @@ FunctionSig _$FunctionSigFromJson(Map<String, dynamic> json) => FunctionSig(
       returnTypes: (json['returnTypes'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      isPublic: json['isPublic'] as String?,
+      isPublic: json['isPublic'] as bool?,
       paramIsMutable: (json['paramIsMutable'] as List<dynamic>?)
           ?.map((e) => e as bool)
           .toList(),

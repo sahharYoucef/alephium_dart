@@ -240,6 +240,43 @@ class _ExplorerClient implements ExplorerClient {
   }
 
   @override
+  Future<List<ExplorerTransaction>> getAddressMempoolTransactions({
+    required address,
+    page,
+    limit,
+    reverse,
+    params,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'limit': limit,
+      r'reverse': reverse,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<ExplorerTransaction>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/addresses/${address}/mempool/transactions',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            ExplorerTransaction.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<List<ExplorerTransaction>> getAddressTimerangedTransactions({
     required address,
     page,

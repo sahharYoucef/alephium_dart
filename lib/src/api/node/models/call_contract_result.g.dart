@@ -13,8 +13,10 @@ CallContractResult _$CallContractResultFromJson(Map<String, dynamic> json) =>
       codeHash: json['codeHash'] as String?,
       debugMessages: json['debugMessages'] == null
           ? null
-          : DebugMessage.fromJson(
-              json['debugMessages'] as Map<String, dynamic>),
+          : json["debugMessages"]
+              .map<DebugMessage>(
+                  (e) => DebugMessage.fromJson(e as Map<String, dynamic>))
+              .toList(),
       contracts: (json['contracts'] as List<dynamic>?)
           ?.map((e) => ContractState.fromJson(e as Map<String, dynamic>))
           .toList(),

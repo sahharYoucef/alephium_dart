@@ -158,6 +158,21 @@ class WalletService {
     return address;
   }
 
+  static String publicKeyFromAddress(String address) {
+    Uint8List bytes = base58.decode(address);
+    // Remove the type byte
+    Uint8List publicKeyBytes = bytes.sublist(1);
+
+    // Reverse Blake2b hashing process
+    var blake2b = Blake2b(
+      input: publicKeyBytes,
+      key: null,
+      outLen: 32,
+    );
+    String publicKeyHex = hex.encode(blake2b.hash);
+    return publicKeyHex;
+  }
+
   static String _getPath([int index = 0]) {
     if ((index < 0 || index.toString().contains('e'))) {
       throw Exception('Invalid address index path level');

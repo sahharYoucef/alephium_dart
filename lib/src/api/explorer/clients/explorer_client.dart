@@ -62,6 +62,15 @@ abstract class ExplorerClient {
     @Headers() Map<String, dynamic>? params,
   });
 
+  @GET("/addresses/{address}/mempool/transactions")
+  Future<List<ExplorerTransaction>> getAddressMempoolTransactions({
+    @Path("address") required String address,
+    @Query("page") int? page,
+    @Query("limit") int? limit,
+    @Query("reverse") bool? reverse,
+    @Headers() Map<String, dynamic>? params,
+  });
+
   @GET("/addresses/{address}/timeranged-transactions")
   Future<List<ExplorerTransaction>> getAddressTimerangedTransactions({
     @Path("address") required String address,

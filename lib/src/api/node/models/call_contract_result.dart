@@ -17,7 +17,7 @@ class CallContractResult {
   @JsonKey(name: 'gasUsed')
   final int? gasUsed;
   @JsonKey(name: 'debugMessages')
-  final DebugMessage? debugMessages;
+  final List<DebugMessage>? debugMessages;
   @JsonKey(name: 'contracts')
   final List<ContractState>? contracts;
   @JsonKey(name: 'txInputs')

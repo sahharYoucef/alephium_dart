@@ -54,7 +54,6 @@ abstract class TransactionClient {
   @GET("/transactions/status")
   @Headers({"Content-Type": "application/json"})
   Future<TxStatus> getTransactionsStatus({
-    @Body() required DecodeTransaction body,
     @Query("fromGroup") num? fromGroup,
     @Query("toGroup") num? toGroup,
     @Query("txId") required String txId,

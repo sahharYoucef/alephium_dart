@@ -202,7 +202,6 @@ class _TransactionClient implements TransactionClient {
 
   @override
   Future<TxStatus> getTransactionsStatus({
-    required body,
     fromGroup,
     toGroup,
     required txId,
@@ -218,7 +217,6 @@ class _TransactionClient implements TransactionClient {
     final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(body.toJson());
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<TxStatus>(Options(
       method: 'GET',
